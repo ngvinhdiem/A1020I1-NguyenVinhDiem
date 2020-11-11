@@ -12,23 +12,33 @@
 </style>
 
     <h1 style="color:#0f3dfe;background: #d4fdd6">ĐĂNG KÝ HỌC VIÊN</h1>
-<form style="color: blue">  Họ và tên &nbsp;&nbsp;    <input type="text" name="yourname"  /></form> <br/>
-<form style="color: blue"> Ngày sinh &nbsp;    <input type="text" name="dateofbirth" /></form> <br/>
-<form style="color: blue"> Giới tính &nbsp;    <input type="radio" name="gender" value="Nam" /> Nam <input type="radio" name="gender" value="Nữ" /> Nữ</form>
-<br/>
-<form style="color: blue">  Địa chỉ &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  <textarea cols="50" rows="4" name="bang"> </textarea>  </form> <br/>
-<form style="color: blue">  Lớp &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  <select name="-Chọn lớp-">
+<form>
+<label style="color: blue">  Họ và tên &nbsp;&nbsp;</label>
+    <input type="text" name="yourname"  /> <br><br>
+<label style="color: blue"> Ngày sinh &nbsp;</label>
+    <input type="text" name="dateofbirth" /> <br><br>
+<label style="color: blue"> Giới tính &nbsp;</label>
+    &nbsp;
+    <input type="radio" name="gender" value="Nam" /> Nam
+    <input type="radio" name="gender" value="Nữ" /> Nữ
+<br><br>
+<label style="color: blue">  Địa chỉ &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  </label>
+    <textarea cols="50" rows="4" name="bang"> </textarea>   <br><br>
+<label style="color: blue">  Lớp &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; </label>
+    <select name="class">
+        <option value="none" checked>-Chọn lớp-</option>
     <option value="A1">20A1</option>
     <option value="A2">20A2</option>
-</select>  </form> <br/>
-<form style="color: blue">  Email &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  <textarea cols="30" rows="1" name="email"> </textarea>  </form> <br/>
-<form style="color: blue">  Điện thoại   &nbsp; <textarea cols="30" rows="1" name="phone"> </textarea>  </form> <br/>
+</select>   <br><br>
+<label style="color: blue">  Email &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  <textarea cols="30" rows="1" name="email"> </textarea>  </label> <br><br>
+<label style="color: blue">  Điện thoại   &nbsp; <textarea cols="30" rows="1" name="phone"> </textarea>  </label> <br><br>
 
-<form>
-    <br/>
-    &nbsp;	&nbsp;	&nbsp;	&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="submit" name="Submit Form" value="Đăng ký"/>
-    <input type="reset" name="Reset Form" value="Nhập lại"/>
+<label>
+    <br><br>
+    &nbsp;	&nbsp;	&nbsp;	&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;
+    <input type="submit" value="Đăng ký"/>
+    <input type="reset"  value="Nhập lại"/>
+</label>
 </form>
 </body>
 </html>
