@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UngDungMayTinh</title>
+</head>
+<body>
+<h1>Calculator</h1>
+<table>
+    <tr>
+        <td colspan="2" > <input type="text" id="so1" style="width: 300px" > </td>
+        <td colspan="2" > <input type="text" id="so2" style="width: 300px"> </td>
+    </tr>
+    <tr>
+        <td><button   onclick="cong()" style="width: 150px" >Addition(+)</button> </td>
+        <td><button   onclick="tru()" style="width: 150px">Substraction(-)</button> </td>
+        <td><button   onclick="nhan()" style="width: 150px">Multiplication(X)</button> </td>
+        <td><button   onclick="chia()" style="width: 150px">Division(/)</button> </td>
+    </tr>
+</table>
+<div id="abc"></div>
+<script>
+    function cong() {
+        var a = document.getElementById("so1").value;
+        var b = document.getElementById("so2").value;
+        document.getElementById('abc').innerHTML = "Result Addition: " + (Number(a)+Number(b))
+    }
+    function tru() {
+        var a = document.getElementById("so1").value;
+        var b = document.getElementById("so2").value;
+        document.getElementById('abc').innerHTML = "Result Substraction: " + (Number(a)-Number(b))
+    }
+    function nhan() {
+        var a = document.getElementById("so1").value;
+        var b = document.getElementById("so2").value;
+        document.getElementById('abc').innerHTML = "Result Multiplication: " + (Number(a)*Number(b))
+    }
+    function chia() {
+        var a = document.getElementById("so1").value;
+        var b = document.getElementById("so2").value;
+        document.getElementById('abc').innerHTML = "Result Division: " + (Number(a)/Number(b))
+    }
+
+</script>
+</body>
+</html>
