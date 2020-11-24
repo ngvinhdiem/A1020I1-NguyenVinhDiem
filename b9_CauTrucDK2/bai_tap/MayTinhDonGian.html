@@ -6,38 +6,149 @@
 </head>
 <body>
 <table border="1" style="border-width: 2px">
-        <tr>
-            <td colspan="4"><input type="text" style="color: blue;text-align: right;width: 210px"></td>
-
-        </tr>
-
     <tr>
-        <td style="border-width: 0"><button onclick="mot()" style="color: blue;text-align: center;width: 50px">1</button></td>
-        <td style="border-width: 0"><button onclick="hai()" style="color: blue;text-align: center;width: 50px">2</button></td>
-        <td style="border-width: 0"><button onclick="ba()" style="color: blue;text-align: center;width: 50px">3</button></td>
-        <td style="border-width: 0"><button onclick="cong()" style="color: blue;text-align: center;width: 50px">+</button></td>
+        <td id="abc" colspan="4" width="200px" height="20px"><input type="text"
+                                                                    style="color: blue;text-align: right;width: 210px">
+        </td>
+
     </tr>
 
     <tr>
-        <td style="border-width: 0"><button onclick="bon()" style="color: blue;text-align: center;width: 50px">4</button></td>
-        <td style="border-width: 0"><button onclick="nam()" style="color: blue;text-align: center;width: 50px">5</button></td>
-        <td style="border-width: 0"><button onclick="sau()" style="color: blue;text-align: center;width: 50px">6</button></td>
-        <td style="border-width: 0"><button onclick="tru()" style="color: blue;text-align: center;width: 50px">-</button></td>
+        <td style="border-width: 0">
+            <button onclick="mot()" style="color: blue;text-align: center;width: 50px">1</button>
+        </td>
+        <td style="border-width: 0">
+            <button onclick="hai()" style="color: blue;text-align: center;width: 50px">2</button>
+        </td>
+        <td style="border-width: 0">
+            <button onclick="ba()" style="color: blue;text-align: center;width: 50px">3</button>
+        </td>
+        <td style="border-width: 0">
+            <button onclick="cong()" style="color: blue;text-align: center;width: 50px">+</button>
+        </td>
     </tr>
 
     <tr>
-        <td style="color: blue;text-align: center">7</td>
-        <td style="color: blue;text-align: center">8</td>
-        <td style="color: blue;text-align: center">9</td>
-        <td style="color: blue;text-align: center">x</td>
+        <td style="border-width: 0">
+            <button onclick="bon()" style="color: blue;text-align: center;width: 50px">4</button>
+        </td>
+        <td style="border-width: 0">
+            <button onclick="nam()" style="color: blue;text-align: center;width: 50px">5</button>
+        </td>
+        <td style="border-width: 0">
+            <button onclick="sau()" style="color: blue;text-align: center;width: 50px">6</button>
+        </td>
+        <td style="border-width: 0">
+            <button onclick="tru()" style="color: blue;text-align: center;width: 50px">-</button>
+        </td>
     </tr>
 
     <tr>
-        <td style="color: blue;text-align: center">C</td>
-        <td style="color: blue;text-align: center">0</td>
-        <td style="color: blue;text-align: center">=</td>
-        <td style="color: blue;text-align: center">/</td>
+        <td style="border-width: 0">
+            <button onclick="bay()" style="color: blue;text-align: center;width: 50px">7</button>
+        </td>
+        <td style="border-width: 0">
+            <button onclick="tam()" style="color: blue;text-align: center;width: 50px">8</button>
+        </td>
+        <td style="border-width: 0">
+            <button onclick="chin()" style="color: blue;text-align: center;width: 50px">9</button>
+        </td>
+        <td style="border-width: 0">
+            <button onclick="nhan()" style="color: blue;text-align: center;width: 50px">X</button>
+        </td>
+    </tr>
+
+    <tr>
+        <td style="border-width: 0">
+            <button onclick="xoa()" style="color: blue;text-align: center;width: 50px">C</button>
+        </td>
+        <td style="border-width: 0">
+            <button onclick="khong()" style="color: blue;text-align: center;width: 50px">0</button>
+        </td>
+        <td style="border-width: 0">
+            <button onclick="bang()" style="color: blue;text-align: center;width: 50px">=</button>
+        </td>
+        <td style="border-width: 0">
+            <button onclick="chia()" style="color: blue;text-align: center;width: 50px">/</button>
+        </td>
     </tr>
 </table>
+<script>
+    let a = '';
+
+    function khong() {
+        a += '0';
+        document.getElementById('abc').innerText = a;
+    }
+
+    function mot() {
+        a += '1';
+        document.getElementById('abc').innerText = a;
+    }
+
+    function hai() {
+        a += '2';
+        document.getElementById('abc').innerText = a;
+    }
+
+    function ba() {
+        a += '3';
+        document.getElementById('abc').innerText = a;
+    }
+
+    function bon() {
+        a += '4';
+        document.getElementById('abc').innerText = a;
+    }
+
+    function nam() {
+        a += '5';
+        document.getElementById('abc').innerText = a;
+    }
+
+    function sau() {
+        a += '6';
+        document.getElementById('abc').innerText = a;
+    }
+    function bay() {
+        a += '7';
+        document.getElementById('abc').innerText = a;
+    }
+
+    function tam() {
+        a += '8';
+        document.getElementById('abc').innerText = a;
+    }
+
+    function chin() {
+        a += '9';
+        document.getElementById('abc').innerText = a;
+    }
+    function cong() {
+        a += '+';
+        document.getElementById('abc').innerText = a;
+    }
+    function tru() {
+        a += '-';
+        document.getElementById('abc').innerText = a;
+    }
+    function nhan() {
+        a += '*';
+        document.getElementById('abc').innerText = a;
+    }
+    function chia() {
+        a += '/';
+        document.getElementById('abc').innerText = a;
+    }
+    function bang() {
+        document.getElementById('abc').innerHTML = eval(a);
+        a= eval(a);
+    }
+
+    function xoa() {
+        a = '';
+        document.getElementById('abc').innerText = a;
+    }
+</script>
 </body>
 </html>
