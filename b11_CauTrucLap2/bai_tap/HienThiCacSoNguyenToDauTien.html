@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numbers = parseInt(prompt("Nhap so luong so nguyen to: "));
+    var count = 0, countUoc = 0;
+    var i, j;
+    var s='';
+    for (i = 2; count < numbers; i++) {
+        for (j = 1; j <=i; j++) {
+            if (i%j == 0) {
+                countUoc++;
+            }
+        }
+        if (countUoc == 2) {
+            count++;
+            s = s + i + ' ';
+        }
+        countUoc=0;
+    }
+    document.write(s);
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="abc"></p>
+<script>
+    let a;
+    let s = '';
+    let d = 0;
+    do {
+        a = parseInt(prompt("nhap 1 so: "));
+        if (a !== -1) {
+            s = s + a + ' ';
+            d = d + a;
+        }
+
+
+    } while (a !== -1);
+document.getElementById('abc').innerHTML=s + "<br>" + "Tong la: " + d;
+</script>
+</body>
+</html>
