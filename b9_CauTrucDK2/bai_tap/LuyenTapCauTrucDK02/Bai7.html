@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>b7</title>
+</head>
+<body>
+<script>
+    let a = parseFloat(prompt("Giai phuong trinh Ax^2+Bx+C, nhap A: "));
+    let b = parseFloat(prompt("Giai phuong trinh Ax^2+Bx+C, nhap B: "));
+    let c = parseFloat(prompt("Giai phuong trinh Ax^2+Bx+C, nhap C: "));
+    let d = b*b - 4*a*c;
+    if (a===0) {
+        if (b === 0) {
+            if (c === 0) document.write("pt co vo so nghiem");
+            else document.write("pt vo nghiem");
+        } else document.write("nghiem cua pt: ", -c / b);
+    }
+    else if (d===0) document.write("nghiem kep: ", (-b)/(2*a)) ;
+    else document.write("nghiem thu nhat va thu hai: " + (-b+d)/(2*a) + " ; " + (-b-d)/(2*a));
+</script>
+</body>
+</html>
