@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let i,j;
+    let a = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let b = 'abcdefghijklmnopqrstuvwxyz';
+    let chuoi = prompt('Nhap 1 chuoi ki tu:');
+    for (i=0;i<chuoi.length;i++) {
+        for (j = 0; j < a.length; j++) {
+            if (chuoi[i] == b[j]) document.write(a[j]);
+            if (chuoi[i] == a[j]) document.write(b[j]);
+        }
+    }
+
+</script>
+</body>
+</html>

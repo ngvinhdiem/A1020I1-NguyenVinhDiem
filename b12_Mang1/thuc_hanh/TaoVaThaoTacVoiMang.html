@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2><i>Sample Screen:</i></h2>
+<input type="text" id="element">
+<button onclick="them()" id=add>Add</button>
+<button onclick="hien()" id="display">Display</button>
+<hr>
+<p id="content"></p>
+<script>
+let mang= [];
+let i=0,b='',j;
+function them(){
+    mang[i]=document.getElementById('element').value;
+    i++;
+    document.getElementById('element').value='';
+}
+function hien() {
+for (j = 0;j < mang.length;j++) {
+    b = b + 'Element ' + j + ' = ' + mang[j] +"\n" }
+document.getElementById('content').innerText=b;
+
+}
+</script>
+</body>
+</html>

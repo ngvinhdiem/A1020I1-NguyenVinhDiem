@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>b8</title>
+</head>
+<body>
+<button onclick="choi()">Chơi</button>
+<script>
+let count=0,n=0;
+    function choi() {
+        count=0; n=0;
+    let a = parseInt(prompt("muon doan trong khoang tu: "));
+    let b = parseInt(prompt("den: "));
+        while (count<3) {
+    let c = prompt("Moi ban chon 1 so trong khoang: " + a + " toi " + b);
+    let d = Math.round(Math.random() * (b - a)) + a;
+    if (c == d) {
+        alert("Chuc mung");
+        break;
+    } else { n=n+1;
+        if ((c - d) > 0) alert("So ban chon lon hon, con " +(3-n)+" lan thu!");
+        else alert("So ban chon nho hon, con " +(3-n)+" lan thu!");
+        count++;
+        if (count == 3) {
+            alert("Ban da thua!");
+        }
+        }
+    }
+}
+
+</script>
+</body>
+</html>

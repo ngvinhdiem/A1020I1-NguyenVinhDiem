@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let c=0,i,b='';
+    let mang = [-3, 5, 1, 3, 2, 10];
+    let a = parseInt(prompt("Nhap 1 so: "));
+    for (i=0;i<mang.length;i++) {
+        if (mang[i] === a) {
+            c = c + 1;
+            b = b + i + ' ';
+        }
+    }
+    if (c>=1) document.write("Vi tri cua phan tu nay: " + b);
+    else document.write("phan tu nay khong xuat hien trong mang");
+</script>
+</body>
+</html>

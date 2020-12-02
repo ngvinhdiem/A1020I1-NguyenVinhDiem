@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let cd = parseInt(prompt("Nhap chieu 1: "));
+    let cr = parseInt(prompt("Nhap chieu 2: "));
+    let i,j;
+    for (i=cd;i>=1;i-=1) {
+        for (j=1;j<=cr;j++) { if (j===1 || j===cr || i===1 || i===cd) document.write("*"); else document.write('&nbsp&nbsp');}
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>

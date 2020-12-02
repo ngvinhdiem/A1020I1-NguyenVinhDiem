@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request2</title>
+</head>
+<body>
+<script>
+    let b;
+    let name = "Nguyễn Vinh Điềm";
+    let idNumber = "123456789";
+    let dateOfBirth = "27/10/2002";
+    let email = "ngvinhdiem@gmail.com";
+    let address = "Tầng 10, 295 Nguyễn Tất Thành, Đà Nẵng";
+    let customerType = "Diamond";
+    let discount = 50;
+    let extra = "1";
+    let rentDays = 15;
+    let serviceType = "Villa";
+    let roomType = "Vip";
+    let a = prompt("1. Show Information Customer" + "\n" + "2. Edit Information Customer" + '\n' + "3. Show the amount to be paid after discount");
+    switch (a) {
+        case '1':
+            alert("Họ và tên: " + name +'\n' +"Số CMND: "+idNumber+"\n"+"Ngày tháng năm sinh: "+dateOfBirth+"\n"+"Email: "+email+"\n"+"Địa chỉ: "+address+"\n"+"Loại Customer (Diamond, Platinum, Gold, Silver, Member): "+customerType+"\n"+"Giảm giá (%): "+discount+"\n"+"Số lượng đi kèm: "+extra+"\n"+"Số ngày thuê: "+rentDays+"\n"+"Loại dịch vụ (Villa, House, Room): "+serviceType+"\n"+"Loại phòng thuê (Vip, Business,  Normal): "+roomType);
+            break;
+        case '2': {
+            b=prompt("Chọn thông tin cần chỉnh sửa:"+"\n"+"1. Họ và tên: " + name +'\n' +"2. Số CMND: "+idNumber+"\n"+"3. Ngày tháng năm sinh: "+dateOfBirth+"\n"+"4. Email: "+email+"\n"+"5. Địa chỉ: "+address+"\n"+"6. Loại Customer (Diamond, Platinum, Gold, Silver, Member): "+customerType+"\n"+"7. Giảm giá (%): "+discount+"\n"+"8. Số lượng đi kèm: "+extra+"\n"+"9. Số ngày thuê: "+rentDays+"\n"+"10. Loại dịch vụ (Villa, House, Room): "+serviceType+"\n"+"11. Loại phòng thuê (Vip, Business,  Normal): "+roomType);
+            switch (b)
+            {
+                case '1': name=prompt()
+
+            }
+            break;}
+        case '3':
+            alert("hi");
+
+
+    }
+</script>
+</body>
+</html>

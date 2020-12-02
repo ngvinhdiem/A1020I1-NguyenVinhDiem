@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request1</title>
+</head>
+<body>
+<script>
+    // Task 1
+    let a;
+let name = prompt("Họ và tên: ");
+let idNumber = prompt("Số CMND: ");
+let dateOfBirth = prompt("Ngày tháng năm sinh: ");
+let email = prompt("Email: ");
+let address = prompt("Địa chỉ: ");
+let customerType = prompt("Loại Customer (Diamond, Platinum, Gold, Silver, Member): ");
+let discount = parseInt(prompt("Giảm giá (%): "));
+let extra = prompt("Số lượng đi kèm: ");
+let rentDays = parseInt(prompt("Số ngày thuê: "));
+let serviceType = prompt("Loại dịch vụ (Villa, House, Room): ");
+let roomType = prompt("Loại phòng thuê (Vip, Business,  Normal): ");
+
+// Task 2
+if (serviceType=='Villa') a=500;
+else if (serviceType=='House') a=300;
+else if (serviceType=='Room') a=100;
+let payment=a*rentDays*(1-(discount/100));
+alert("Họ và tên: " + name +'\n' +"Số CMND: "+idNumber+"\n"+"Ngày tháng năm sinh: "+dateOfBirth+"\n"+"Email: "+email+"\n"+"Địa chỉ: "+address+"\n"+"Loại Customer (Diamond, Platinum, Gold, Silver, Member): "+customerType+"\n"+"Giảm giá (%): "+discount+"\n"+"Số lượng đi kèm: "+extra+"\n"+"Số ngày thuê: "+rentDays+"\n"+"Loại dịch vụ (Villa, House, Room): "+serviceType+"\n"+"Loại phòng thuê (Vip, Business,  Normal): "+roomType+"\n"+"Số tiền phải trả: "+payment);
+
+</script>
+</body>
+</html>

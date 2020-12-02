@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    let str = prompt("nhap 1 chuoi:");
+    let ele = prompt("nhap phan tu muon chen: ");
+    let loca = parseInt(prompt("nhap vi tri muon chen: "));
+    const result = [''];
+
+    for(let i=0; i<str.length+1; i++)
+    {
+        if(i==loca)
+        {
+            result.push(ele, str[i]);
+        }
+        else
+        {
+            result.push(str[i]);
+        }
+    }
+    document.write(result.join(''));
+</script>
+</body>
+</html>
