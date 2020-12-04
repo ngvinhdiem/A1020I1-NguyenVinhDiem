@@ -6,7 +6,14 @@
 </head>
 <body>
 <script>
-    
+    let count=0;
+    let eng = ['Apple','Banana','Camel','Doll','Elephant','Fruit'];
+    let vie = ['Táo','Chuối','Lạc đà','Búp bê','Voi','Trái cây'];
+    let input = prompt('Nhập từ tiếng Anh cần dịch: ');
+    for (let i=0;i<eng.length;i++) {
+        if (input == eng[i]) {document.write(eng[i] +" nghĩa là: "+vie[i]);count++;}
+    }
+    if (count==0) {document.write("Không tìm thấy!")}
 
 
 </script>

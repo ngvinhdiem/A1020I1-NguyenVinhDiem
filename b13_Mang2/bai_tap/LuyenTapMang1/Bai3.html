@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soluong = parseInt(prompt("Nhap so phan tu trong mang: "));
+    let sum=0,m=0;
+    let array = new Array(soluong);
+    for (let i=0;i<soluong;i++){
+        array[i]=parseInt(prompt("Nhap phan tu thu "+(i+1)+":"));
+        sum+=array[i];
+        if (array[i]>m) m=array[i];
+    }
+    m=array[0];
+
+    document.write("Max: "+m+" va trung binh cong: "+sum/soluong);
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let m=0,vitri;
+    let array = new Array(10);
+    for (let i=0;i<10;i++){
+        array[i]=parseInt(prompt("Nhap phan tu thu "+(i+1)+":"));
+        if (array[i]>m) m=array[i];
+    }
+    m=array[0];
+    for (let i=0;i<10;i++){
+        if (array[i]>m) {m=array[i]; vitri=i}
+    }
+    document.write("Max: "+m+" tai vi tri: "+vitri);
+</script>
+</body>
+</html>

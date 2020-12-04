@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h1 style="text-align: center">Type anything slowly</h1>
+    <form name="form">
+        <textarea name="letter" rows="10" cols="30" onkeydown="nhap()"></textarea>
+    </form>
+</center>
+<p id="abc"></p>
+
+<script>
+    n="";
+    var str=" Go nua cung nhu vay thoi a!"
+    function nhap(){
+        t = document.form.letter.value;
+        j = t.length;
+        if(j > 0)
+        {
+            for(var i=1; i<=j; i++)
+            {
+                n += str[i];
+                if(i===27)
+                {
+                    document.form.letter.value = "";
+                    n = "";
+                }
+            }
+        }
+        document.form.letter.value = n;
+        n="";
+        setTimeout("nhap()", 1);
+    }
+</script>
+</body>
+</html>

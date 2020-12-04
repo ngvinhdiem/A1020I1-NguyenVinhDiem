@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Trò chơi Tic Tac Toe</h1>
+<p id="carogame" />
+<input type="button" value="Change Value" onclick="changeValue()">
+<script>
+    let count=0;
+    let posX,posY;
+    let b = document.getElementById("carogame");
+
+    let board = [];
+    let data = "",data1= "";
+    for (let i = 0; i < 5; i++) {
+        board[i] = new Array('.', '.', '.', '.', '.');
+    }
+
+    for (let i = 0; i < 5; i++) {
+        data += "<br/><br/><br/><br/>";
+        for (let j = 0; j < 5; j++) {
+            data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+        }
+    }
+
+    data += "<br/><br/><br/><br/><input type='button' value='Chơi' onclick='changeValue()'>";
+    let data2=data;
+    b.innerHTML = data;
+    function  changeValue() {
+        posX = parseInt(prompt("X: "));
+        posY = parseInt(prompt("Y: "));
+        if (count%2==0)
+            board[posX][posY] = 'x';
+        else  board[posX][posY] = 'o';
+        count++;
+        for (let i = 0; i < 5; i++) {
+            data1 += "<br/><br/><br/><br/>";
+            for (let j = 0; j < 5; j++) {
+                data1 += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+        data1 += "<br/><br/><br/><br/><input type='button' value='Chơi' onclick='changeValue()'>";
+        b.innerHTML = data1;
+        data1="";
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                if ((board[i][j]==='x')&&(board[i][j+1]==='x')&&(board[i][j+2]==='x')) {setTimeout(function(){ alert("Người chơi "+board[i][j]+" là người chiến thắng"); b.innerHTML =data2;}, 100); }
+                if ((board[i][j]==='x')&&(board[i+1][j]==='x')&&(board[i+2][j]==='x')) {setTimeout(function(){ alert("Người chơi "+board[i][j]+" là người chiến thắng"); b.innerHTML =data2;}, 100);}
+                if ((board[i][j]==='x')&&(board[i+1][j+1]==='x')&&(board[i+2][j+2]==='x')) {setTimeout(function(){ alert("Người chơi "+board[i][j]+" là người chiến thắng");b.innerHTML =data2; }, 100);}
+            }
+        }
+
+    }
+console.log(data2);
+</script>
+</body>
+</html>

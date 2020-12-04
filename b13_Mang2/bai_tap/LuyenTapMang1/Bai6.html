@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let count=0;
+    let num=parseInt(prompt("Nhap so nguyen V muon tim: "));
+    let array = new Array(10);
+    for (let i=0;i<10;i++){
+        array[i]=parseInt(prompt("Nhap phan tu thu "+(i+1)+":"));
+        if (array[i]==num) count++;
+    }
+    if (count>0)
+    document.write("V is in the array");
+    if (count==0) document.write("V is not in the array");
+</script>
+</body>
+</html>
