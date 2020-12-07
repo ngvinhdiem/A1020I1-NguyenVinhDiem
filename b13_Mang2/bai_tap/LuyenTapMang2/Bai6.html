@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let count=0;
+    let num=parseInt(prompt("Nhap kich thuoc mang: "));
+    let array = new Array(num);
+    let array1 = new Array(num);
+    for (let i=0;i<array.length;i++) {
+        array[i] = prompt("Nhap ky tu thu " + (i) + ":");
+        if (array[i]=='-') {array1[i]='_';}
+        else array1[i]=array[i];
+        }
+    document.write("Chuoi ban dau: "+array+'<br>');
+    document.write("Chuoi sau do: "+array1);
+
+</script>
+</body>
+</html>

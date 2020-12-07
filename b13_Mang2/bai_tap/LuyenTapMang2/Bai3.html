@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let count=0;
+    let num=parseInt(prompt("Nhap kich thuoc mang: "));
+    let array = new Array(num);
+    for (let i=0;i<array.length;i++) {
+        array[i] = prompt("Nhap ky tu thu " + (i) + ":");
+        for (let j=0;j<=9;j++) {
+            if (parseInt(array[i])==j) count++;
+        }
+    }
+document.write("So ki tu so trong mang: "+count);
+</script>
+</body>
+</html>

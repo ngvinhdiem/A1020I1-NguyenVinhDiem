@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num=parseInt(prompt("Nhap so phan tu cua mang: "));
+    let array = new Array(num);
+    for (let i=0;i<array.length;i++) {
+        array[i] = parseInt(prompt("Nhap phan tu thu " + (i) + ":"));
+    }
+    array = array.reverse();
+    array = array.join("");
+    document.write(array);
+</script>
+</body>
+</html>
