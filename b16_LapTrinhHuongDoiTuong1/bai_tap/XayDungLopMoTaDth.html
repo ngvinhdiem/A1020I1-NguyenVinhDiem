@@ -6,27 +6,60 @@
 </head>
 <body>
 <script>
-    let check=0;
     class Mobile {
-        constructor(a) {
-            this.batt = a;
+        constructor(id,name) {
+            this.id=id;
+            this.name=name;
+            this.message="";
+        }
+        batt = 100;
+        status=false;
+
+        // hien thi pin - sac pin
+        get batDisplay() {
+            if (this.status===true) {document.write('<br>'+this.batt);this.batt--}
+        }
+        get batRefill() {
+            this.batt=100;
         }
 
-        set soan(b) {
-            if (check===1) this.message=b;
+        // tin nhan
+
+        sendMessage(message, mobile) {
+            if (this.status===true) {mobile.setMessage(message);this.batt--}
         }
-        get on() {
-            check=1;
+        setMessage(a) {
+            if (this.status===true) {this.message = a;this.batt--}
         }
-        get off() {
-            check=0;
+        getMessage() {
+            if (this.status===true) {this.batt--; document.write('<br>'+this.message); }
         }
 
-
+        // bat - tat -ktra
+       get  on() {
+            this.status=true;
+        }
+       get off() {
+            this.status=false;
+        }
+        get check() {
+            if (this.status===true) {document.write('<br>'+"ON"); this.batt--;}
+            else {document.write('<br>'+"OFF");this.batt--;}
+        }
 
     }
-    let nokia = new Mobile(80);
-    let iphone = new Mobile(95);
+    var iphone = new Mobile (1,'iphone');
+    var samsung = new Mobile(2,'samsung');
+    iphone.on;
+    samsung.on;
+    iphone.sendMessage("helloss",samsung);
+    iphone.off;
+    samsung.getMessage();
+    samsung.batDisplay;
+    samsung.batRefill;
+    samsung.batDisplay;
+    iphone.check;
+    samsung.check;
 </script>
 </body>
 </html>

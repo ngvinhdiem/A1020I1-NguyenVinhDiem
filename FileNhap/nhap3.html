@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Mobile(id,name) {
+    this.id=id;
+    this.name=name;
+    this.message="";
+    this.setMessage=function (message) {
+        this.message=message;
+    };
+    this.getMessage=function () {
+return this.message;
+    };
+    this.sendMessage = function (message, mobile) {
+        mobile.setMessage(message);
+    }
+    }
+    var iphone = new Mobile (1,'iphone');
+    var samsung = new Mobile(2,'samsung');
+    iphone.sendMessage("helloss",samsung);
+    console.log(samsung.getMessage());
+</script>
+</body>
+</html>

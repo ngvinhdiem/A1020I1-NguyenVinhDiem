@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Dog {
+        // Tạo các thuộc tính (property)
+        constructor(name, color, type) {
+            this.name = name;
+            this.color = color;
+            this.type = type
+        }
+
+        // Thêm vào các phương thức (method)
+        bark() {
+            console.log(` ${this.name} `)
+        }
+    }
+
+    let milu = new Dog('Milu', 'Black', 'Becgie');
+
+    milu.bark() // Milu barks: Go Go Go
+</script>
+</body>
+</html>
