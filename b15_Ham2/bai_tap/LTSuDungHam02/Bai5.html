@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script> let b = new Array(3);
+
+function mini(a) {
+    for (let i = 0; i < 3; i++) a[i] = parseInt(prompt("Nhap vao so nguyen thu " + (i+1)));
+    let min = a[0];
+    for (let i = 0; i < 3; i++) if (min > a[i]) min = a[i];
+    return min;
+}
+
+document.write(mini(b));
+</script>
+</body>
+</html>

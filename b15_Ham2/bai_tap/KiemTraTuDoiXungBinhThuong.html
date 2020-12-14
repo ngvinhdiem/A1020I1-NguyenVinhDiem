@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array=[];
+    let a = prompt("Hay nhap 1 chuoi: ");
+    for (let i=0;i<a.length;i++) array[i]=a[i];
+    function daonguoc(b) { let c=b; c=c.join('');
+        b=b.reverse();
+        b=b.join('');
+        return b === c;
+    }
+   document.write(daonguoc(array));
+</script>
+</body>
+</html>

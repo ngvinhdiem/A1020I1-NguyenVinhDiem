@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let dem=0;
+    let array1 = ["Polaris","Aldebaran","Deneb","Vega","Altair","Dubhe","Regulus"];
+    let array2 = ["Ursa Minor","Tarurus","Cygnus","Lyra","Aquila","Ursa Majo","Leo"];
+    let string=prompt("Nhap ten ngoi sao: ");
+    for (let i=0;i<array1.length;i++) if (array1[i]===string) {document.write(array2[i]); dem++}
+    if (dem==0) document.write("khong tim thay")
+</script>
+</body>
+</html>

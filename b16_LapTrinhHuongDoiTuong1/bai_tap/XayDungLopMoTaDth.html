@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let check=0;
+    class Mobile {
+        constructor(a) {
+            this.batt = a;
+        }
+
+        set soan(b) {
+            if (check===1) this.message=b;
+        }
+        get on() {
+            check=1;
+        }
+        get off() {
+            check=0;
+        }
+
+
+
+    }
+    let nokia = new Mobile(80);
+    let iphone = new Mobile(95);
+</script>
+</body>
+</html>

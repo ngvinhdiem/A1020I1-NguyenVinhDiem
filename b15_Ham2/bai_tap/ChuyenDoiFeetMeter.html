@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td style="text-align: center">Feet</td>
+        <td style="text-align: center">Meters</td>
+    </tr>
+    <tr>
+        <td><input type="number" id="inputfoot" oninput="footToMeters(this.value)" onchange="footToMeters(this.value)" ></td>
+        <td><p id="outputmeters"></p></td>
+    </tr>
+</table>
+
+<p><br><br></p>
+
+
+<table>
+    <tr>
+        <td style="text-align: center">Meters</td>
+        <td style="text-align: center">Feet</td>
+    </tr>
+    <tr>
+        <td><input type="number" id="inputmeters" oninput="metersToFoot(this.value)" onchange="metersToFoot(this.value)" ></td>
+        <td><p id="outputfoot"></p></td>
+    </tr>
+</table>
+<script>
+function footToMeters(foot) {
+    foot=parseFloat(foot);
+    document.getElementById("outputmeters").innerHTML=foot * 0.305;
+}
+
+function metersToFoot(met) {
+    met=parseFloat(met);
+    document.getElementById("outputfoot").innerHTML=met * 3.279;
+}
+</script>
+</body>
+</html>

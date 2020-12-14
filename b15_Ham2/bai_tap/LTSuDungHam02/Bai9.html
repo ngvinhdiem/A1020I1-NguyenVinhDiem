@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+let string=prompt("Nhap 1 mang ki tu:");
+let num=prompt("Nhap ki tu can tim:");
+let dem=0;
+function demso(a) {
+    for (let i=0;i<a.length;i++) if (a[i]==num) dem++;
+    if (dem==0) return -1;
+    return dem;
+}
+document.write(demso(string));
+</script>
+</body>
+</html>

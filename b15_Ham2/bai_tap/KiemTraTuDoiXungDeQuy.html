@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let i = 0;
+    let string = prompt("Nhap 1 chuoi: ");
+    let j = string.length - 1;
+
+    function ktra(i) {
+        if (string[i] !== string[j]) return false;
+        j--;
+        if (i >= j) return true;
+        return ktra(i + 1);
+    }
+
+    document.write(ktra(i))
+</script>
+</body>
+</html>
