@@ -8,25 +8,32 @@
 <script>
     class ElectricLamp {
         status=false;
-        turnOn() {this.status=true;}
+        turnOn() {
+            this.status=true;
+        }
         turnOff() {this.status=false;}
     }
 
     class SwitchButton {
-        status=true;
+        status=false;
         lampconnect=false;
-        connectToLamp(lamp1) {this.lampconnect=true; lamp1.status=this.status;}
-        switchOn() {this.status=true; if (this.connectToLamp(lamp)===true) this.connectToLamp(lamp); }
-        switchOff() {this.status=false; if (this.connectToLamp(lamp)===true) this.connectToLamp(lamp);}
+        LampType;
+        connectToLamp(ElectricLamp) {this.lampconnect = true ; this.LampType=ElectricLamp;}
+        switchOn() {if (this.lampconnect===true) (this.LampType).turnOn();}
+        switchOff() {if (this.lampconnect===true) (this.LampType).turnOff();}
     }
 
 
     let button = new SwitchButton();
     let lamp = new ElectricLamp();
-    button.switchOn();
-    console.log(lamp.status);
-    button.switchOff();
-    console.log(lamp.status);
+    button.connectToLamp(lamp);
+    for (let i=0;i<5;i++) {
+        button.switchOn();
+        console.log(lamp.status);
+        button.switchOff();
+        console.log(lamp.status);
+    }
+
 </script>
 </body>
 </html>

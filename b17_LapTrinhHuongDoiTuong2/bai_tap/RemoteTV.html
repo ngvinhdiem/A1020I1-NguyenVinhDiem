@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Remote {
+        constructor(id) {
+            this.id=id;
+        }
+        TVtype;
+        TVconnect=false;
+        changeChannel(b) {if (this.TVconnect===true) (this.TVtype).move(b);}
+        changeVolume(a) {if (this.TVconnect===true) (this.TVtype).changeVolume(a);}
+        turn(TV) {this.TVconnect=true; this.TVtype=TV; if (TV.status===true) TV.status=false; else TV.status=true;}
+    }
+
+    class TV {
+        constructor(channel,volume) {
+            this.channel=channel;
+            this.volume=volume;
+        }
+        status=false;
+        move(b) {this.channel=b;}
+        changeVolume(a) {this.volume+=a;}
+    }
+    let pana = new Remote('123');
+    let sony = new TV(1,50);
+    console.log(sony.status);
+    pana.turn(sony);
+    console.log(sony.status);
+    sony.move(3);
+    console.log(sony.channel);
+    pana.changeChannel(7);
+    console.log(sony.channel);
+    pana.changeVolume(2);
+    console.log(sony.volume);
+    console.log(sony.status);
+    pana.turn(sony);
+    console.log(sony.status);
+
+</script>
+</body>
+</html>
