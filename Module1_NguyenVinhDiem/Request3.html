@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request3</title>
+</head>
+<body>
+<script>
+    let dem1 = 0, dem2 = 0, dem = 0, numEx = '';
+    let a;
+    let b, c, d;
+    let check = true;
+
+    let name = prompt("Họ và tên: ");
+    while (true) {
+    if (name.length!==0) {
+    let subArray= new Array(name.length);
+    for (let i=0;i<subArray.length;i++) { subArray[i]=name[i]; }
+    let g=(subArray.join('')).toUpperCase(); let h=(subArray.join('')).toLowerCase();
+    for (let i=0;i<subArray.length;i++) { if (subArray[0]!==' ') subArray[0]=g[0]; if (subArray[i]===' '&&subArray[i+1]!==' ') subArray[i+1]=g[i+1]; }
+    for (let i=0;i<subArray.length-1;i++) { if (subArray[i]!==' '&&subArray[i+1]!==' ') subArray[i+1]=h[i+1]; }
+    for (let i=0;i<subArray.length;i++) { if (subArray[i]===' ') {subArray.splice(i,1); i--;} else break; }
+    for (let i=0;i<subArray.length;i++) { if (subArray[i]===' '&&subArray[i+1]===' ') {subArray.splice(i,1); i--;} }
+    name=subArray.join(''); break; }
+    else {alert("Mời nhập lại họ và tên: "); name = prompt("Họ và tên: "); }}
+
+
+    let idNumber = prompt("Số CMND: ");
+    while (true) {
+        for (let i = 0; i < idNumber.length; i++) {
+            dem++;
+            if (isNaN(Number(idNumber[i]))) check = false;
+        }
+        if (check === true && (dem === 9 || dem === 12)) break; else {
+            alert("Mời nhập lại số CMND: ");
+            dem = 0;
+            check = true;
+            idNumber = prompt("Số CMND: ");
+        }
+    }
+
+
+
+    let dateOfBirth = prompt("Ngày tháng năm sinh (DD/MM/YYYY): ");
+    while (true) {
+        b = Number(dateOfBirth[0] + dateOfBirth[1]);
+        c = Number(dateOfBirth[3] + dateOfBirth[4]);
+        d = Number(dateOfBirth[6] + dateOfBirth[7] + dateOfBirth[8] + dateOfBirth[9]);
+        if (dateOfBirth[2]==='/'&& dateOfBirth[5]==='/'&& b > 0 && b <= 31 && c > 0 && c <= 12 && d > 0 && dateOfBirth.length === 10) break; else {
+            alert("Mời nhập lại ngày tháng năm sinh! ");
+            dateOfBirth = prompt("Ngày tháng năm sinh (DD/MM/YYYY): ");
+        }
+    }
+
+
+    let email = prompt("Email: ");
+    while (true) {
+        for (let i = 1; i < email.length - 3; i++) {
+            if (email[i] === '@') {
+                dem1++;
+                for (let j = i + 2; j <= email.length - 2; j++) {
+                    if (email[j] === '.') dem2++;
+                }
+            }
+        }
+        if (dem1 === 1 && dem2 === 1) break; else {
+            alert("Mời nhập lại email!" + dem1 + dem2);
+            dem1 = 0;
+            dem2 = 0;
+            email = prompt("Email: ");
+        }
+    }
+
+
+
+    let address = prompt("Địa chỉ: ");
+    while (true) {
+        if (name.length!==0) {
+            let subArray= new Array(address.length);
+            for (let i=0;i<subArray.length;i++) { subArray[i]=address[i]; }
+            let g=(subArray.join('')).toUpperCase(); let h=(subArray.join('')).toLowerCase();
+            for (let i=0;i<subArray.length;i++) { if (subArray[0]!==' ') subArray[0]=g[0]; if (subArray[i]===' '&&subArray[i+1]!==' ') subArray[i+1]=g[i+1]; }
+            for (let i=0;i<subArray.length-1;i++) { if (subArray[i]!==' '&&subArray[i+1]!==' ') subArray[i+1]=h[i+1]; }
+            for (let i=0;i<subArray.length;i++) { if (subArray[i]===' ') {subArray.splice(i,1); i--;} else break; }
+            for (let i=0;i<subArray.length;i++) { if (subArray[i]===' '&&subArray[i+1]===' ') {subArray.splice(i,1); i--;} }
+            address=subArray.join(''); break; }
+        else {alert("Mời nhập lại địa chỉ: "); address = prompt("Địa chỉ: "); }}
+
+
+
+    let customerType = prompt("Loại Customer (Diamond, Platinum, Gold, Silver, Member): ");
+    {let subArray= new Array(customerType.length); let biendem =0;
+    for (let i=0;i<subArray.length;i++) { subArray[i]=customerType[i]; }
+    let g=(subArray.join('')).toUpperCase(); let h=(subArray.join('')).toLowerCase();
+    for (let i=0;i<subArray.length;i++) { if (subArray[i]!==' ') subArray[i]=g[i];}
+    for (let i=0;i<subArray.length;i++) { if (subArray[i]!==' ') biendem++; if (biendem>=2) subArray[i]=h[i]; }
+    for (let i=0;i<subArray.length;i++) { if (subArray[i]===' ') {subArray.splice(i,1); i--;}}
+    customerType=subArray.join('');}
+    while (true) {
+        if (customerType === 'Diamond' || customerType === 'Platinum' || customerType === 'Gold' || customerType === 'Silver' || customerType === 'Member')
+            break;
+        else {
+            alert("Mời nhập lại loại Customer (Diamond, Platinum, Gold, Silver, Member): ");
+            customerType = prompt("Loại Customer (Diamond, Platinum, Gold, Silver, Member): ");
+        }
+            }
+
+
+
+    let discount = parseInt(prompt("Giảm giá (%): "));
+    while (true) {
+
+        if (discount > 0 && !isNaN(discount) && discount <= 100) break;
+        else {
+            alert("Mời nhập lại giảm giá (%): ");
+            discount = parseInt(prompt("Giảm giá (%): "));
+        }
+    }
+
+
+    let extra = parseInt(prompt("Số lượng đi kèm: "));
+    while (true) {
+
+        if (extra > 0 && !isNaN(extra)) break;
+        else {
+            alert("Mời nhập lại số lượng đi kèm: ");
+            numEx = '';
+            extra = parseInt(prompt("Số lượng đi kèm: "));
+        }
+    }
+
+
+    let rentDays = parseInt(prompt("Số ngày thuê: "));
+    while (true) {
+        if (rentDays > 0 && !isNaN(rentDays)) break;
+        else {
+            alert("Mời nhập lại số ngày thuê: ");
+            rentDays = parseInt(prompt("Số ngày thuê: "));
+        }
+    }
+
+    let serviceType = prompt("Loại dịch vụ (Villa, House, Room): ");
+    {let subArray= new Array(serviceType.length); let biendem =0;
+        for (let i=0;i<subArray.length;i++) { subArray[i]=serviceType[i]; }
+        let g=(subArray.join('')).toUpperCase(); let h=(subArray.join('')).toLowerCase();
+        for (let i=0;i<subArray.length;i++) { if (subArray[i]!==' ') subArray[i]=g[i];}
+        for (let i=0;i<subArray.length;i++) { if (subArray[i]!==' ') biendem++; if (biendem>=2) subArray[i]=h[i]; }
+        for (let i=0;i<subArray.length;i++) { if (subArray[i]===' ') {subArray.splice(i,1); i--;}}
+        serviceType=subArray.join('');}
+    while (true) {
+        if (serviceType === 'Villa' || serviceType === 'House' || serviceType === 'Room' )
+            break;
+        else {
+            alert("Mời nhập lại loại dịch vụ (Villa, House, Room): ");
+            serviceType = prompt("Loại dịch vụ (Villa, House, Room): ");
+        }
+    }
+
+
+    let roomType = prompt("Loại phòng thuê (Vip, Business,  Normal): ");
+    {let subArray= new Array(roomType.length); let biendem =0;
+        for (let i=0;i<subArray.length;i++) { subArray[i]=roomType[i]; }
+        let g=(subArray.join('')).toUpperCase(); let h=(subArray.join('')).toLowerCase();
+        for (let i=0;i<subArray.length;i++) { if (subArray[i]!==' ') subArray[i]=g[i];}
+        for (let i=0;i<subArray.length;i++) { if (subArray[i]!==' ') biendem++; if (biendem>=2) subArray[i]=h[i]; }
+        for (let i=0;i<subArray.length;i++) { if (subArray[i]===' ') {subArray.splice(i,1); i--;}}
+        roomType=subArray.join('');}
+    while (true) {
+        if (roomType === 'Vip' || roomType === 'Business' || roomType === 'Normal' )
+            break;
+        else {
+            alert("Mời nhập lại loại phòng thuê (Vip, Business,  Normal): ");
+            customerType = prompt("Loại phòng thuê (Vip, Business,  Normal): ");
+        }
+    }
+
+
+    if (serviceType === 'Villa') a = 500;
+    else if (serviceType === 'House') a = 300;
+    else if (serviceType === 'Room') a = 100;
+    let payment = a * rentDays * (1 - (discount / 100));
+    alert("Họ và tên: " + name + '\n' + "Số CMND: " + idNumber + "\n" + "Ngày tháng năm sinh: " + dateOfBirth + "\n" + "Email: " + email + "\n" + "Địa chỉ: " + address + "\n" + "Loại Customer (Diamond, Platinum, Gold, Silver, Member): " + customerType + "\n" + "Giảm giá (%): " + discount + "\n" + "Số lượng đi kèm: " + extra + "\n" + "Số ngày thuê: " + rentDays + "\n" + "Loại dịch vụ (Villa, House, Room): " + serviceType + "\n" + "Loại phòng thuê (Vip, Business,  Normal): " + roomType + "\n" + "Số tiền phải trả: " + payment);
+
+</script>
+</body>
+</html>

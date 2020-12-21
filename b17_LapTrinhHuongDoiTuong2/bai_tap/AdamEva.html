@@ -8,34 +8,78 @@
 <script>
     class Apple {
         constructor(weight) {
-            this.weight=10;
+            this.weight = 10;
         }
-         decrease() {this.weight--;}
-        get isEmpty() {if (this.weight>0) console.log(false) ; if (this.weight===0) console.log(true);}
-        getWeight() {console.log(this.weight);}
+
+        decrease() {
+            this.weight--;
+        }
+
+        get isEmpty() {
+            if (this.weight > 0) console.log(false);
+            if (this.weight === 0) console.log(true);
+        }
+
+        getWeight() {
+            console.log(this.weight);
+        }
     }
 
     class Human {
-        constructor(name,gender,weight) {
-            this.name=name;
-            this.gender = ( gender != "Male" ? false : true);
+        constructor(name, gender, weight) {
+            this.name = name;
+            this.gender = (gender != "Male" ? false : true);
             this.weight = weight;
         }
-        say(a) {return a;}
-        eat(apple123) {if (apple123.weight>0) {this.weight++;apple123.decrease();}}
-        isMale() {if (this.gender===true) console.log(true); else console.log(false); }
-        setGender(a) {this.gender=a}
-        checkApple(apple) {return apple.weight > 0;}
-        getName() {console.log(this.name);}
-        setName(b) {this.name=b}
-        getWeight() {console.log(this.weight)}
-        setWeight(apple,weight) {apple.weight=weight;}
+
+        say(a) {
+            return a;
+        }
+
+        eat(apple) {
+            this.apple = apple;
+            if (this.apple.weight > 0) {
+                this.weight++;
+                this.apple.decrease();
+            }
+        }
+
+        isMale() {
+            if (this.gender === true) console.log(true); else console.log(false);
+        }
+
+        setGender(a) {
+            this.gender = a
+        }
+
+        checkApple(apple) {
+            return apple.weight > 0;
+        }
+
+        getName() {
+            console.log(this.name);
+        }
+
+        setName(b) {
+            this.name = b
+        }
+
+        getWeight() {
+            console.log(this.weight)
+        }
+
+        setWeight(weight) {
+            this.weight = weight;
+        }
     }
+
     let apple = new Apple(10);
-    let adam = new Human("Adam","Male",70);
-    let eva = new Human("Eva","Female",40);
+    let adam = new Human("Adam", "Male", 70);
+    let eva = new Human("Eva", "Female", 40);
     console.log(eva.gender);
-    adam.getName(); adam.isMale(); eva.isMale();
+    adam.getName();
+    adam.isMale();
+    eva.isMale();
     adam.eat(apple);
     adam.getWeight();
     apple.getWeight();

@@ -7,32 +7,59 @@
 <body>
 <script>
     class Rat {
-        constructor(name,weight,speed) {
-            this.name=name;
-            this.weight=weight;
-            this.speed=speed;
+        constructor(name, weight, speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
         }
+
         status = true;
-        say() { console.log("chít, chít");}
+
+        say() {
+            console.log("chít, chít");
+        }
     }
 
     class Cat {
-        constructor(name,weight,speed) {
-            this.name=name;
-            this.weight=weight;
-            this.speed=speed;
+        constructor(name, weight, speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
         }
-        catchstatus=false;
-        say() { console.log("meo, meo");}
-        catch(Rat) { if (this.speed>Rat.speed) this.catchstatus=true;}
-        eat(Rat) {if (Rat.status===true&&this.catchstatus===true) {Rat.status=false; this.weight+=Rat.weight;  Rat.weight=0;}}
+
+        catchstatus = false;
+
+        say() {
+            console.log("meo, meo");
+        }
+
+        catch(rat) {
+            this.rat = rat;
+            if (this.speed > this.rat.speed) this.catchstatus = true;
+        }
+
+        eat(rat) {
+            this.rat = rat;
+            if (this.rat.status === true && this.catchstatus === true) {
+                this.rat.status = false;
+                this.weight += this.rat.weight;
+                this.rat.weight = 0;
+            }
+        }
     }
 
-    let chuot = new Rat('jerry',10,10);
-    let meo = new Cat('tom',30,30);
+    let chuot = new Rat('jerry', 10, 10);
+    let meo = new Cat('tom', 30, 30);
     console.log(chuot.status);
-    chuot.say(); meo.say(); console.log(meo.catchstatus);
-    meo.catch(chuot); console.log(meo.catchstatus); console.log(meo.weight); meo.eat(chuot); console.log(meo.weight); console.log(chuot.status);
+    chuot.say();
+    meo.say();
+    console.log(meo.catchstatus);
+    meo.catch(chuot);
+    console.log(meo.catchstatus);
+    console.log(meo.weight);
+    meo.eat(chuot);
+    console.log(meo.weight);
+    console.log(chuot.status);
 </script>
 </body>
 </html>

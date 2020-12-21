@@ -7,14 +7,13 @@
 <body>
 <script>
     class Remote {
-        constructor(id) {
-            this.id=id;
+        constructor(tv) {
+            this.tv=tv;
         }
-        TVtype;
-        TVconnect=false;
-        changeChannel(b) {if (this.TVconnect===true) (this.TVtype).move(b);}
-        changeVolume(a) {if (this.TVconnect===true) (this.TVtype).changeVolume(a);}
-        turn(TV) {this.TVconnect=true; this.TVtype=TV; if (TV.status===true) TV.status=false; else TV.status=true;}
+        changeChannel(channel) {
+            this.tv.move(channel); }
+        changeVolume(volume) {
+            this.tv.changeVolume(volume);}
     }
 
     class TV {
@@ -23,13 +22,19 @@
             this.volume=volume;
         }
         status=false;
+        turn() {this.status=!this.status; }
         move(b) {this.channel=b;}
-        changeVolume(a) {this.volume+=a;}
+        changeVolume(volume) {this.volume+=volume;}
     }
+
+
+
+
+
     let pana = new Remote('123');
     let sony = new TV(1,50);
     console.log(sony.status);
-    pana.turn(sony);
+    sony.turn();
     console.log(sony.status);
     sony.move(3);
     console.log(sony.channel);

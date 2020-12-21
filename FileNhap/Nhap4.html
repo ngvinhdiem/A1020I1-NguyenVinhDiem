@@ -6,23 +6,61 @@
 </head>
 <body>
 <script>
-    class Dog {
-        // Tạo các thuộc tính (property)
-        constructor(name, color, type) {
-            this.name = name;
-            this.color = color;
-            this.type = type
-        }
+    // class Dog {
+    //     // Tạo các thuộc tính (property)
+    //     constructor(name, color, type) {
+    //         this.name = name;
+    //         this.color = color;
+    //         this.type = type
+    //     }
+    //
+    //     // Thêm vào các phương thức (method)
+    //     bark() {
+    //         console.log(` ${this.name} `)
+    //     }
+    // }
+    //
+    // let milu = new Dog('Milu', 'Black', 'Becgie');
+    //
+    // milu.bark() // Milu barks: Go Go Go
+    let a = '  v     I l        L A';
 
-        // Thêm vào các phương thức (method)
-        bark() {
-            console.log(` ${this.name} `)
-        }
-    }
 
-    let milu = new Dog('Milu', 'Black', 'Becgie');
+    //
+    // let subArray= new Array(a.length);
+    // for (let i=0;i<subArray.length;i++) { subArray[i]=a[i]; }
+    // let g=(subArray.join('')).toUpperCase(); let h=(subArray.join('')).toLowerCase();
+    // for (let i=0;i<subArray.length;i++) { if (subArray[0]!==' ') subArray[0]=g[0]; if (subArray[i]===' '&&subArray[i+1]!==' ') subArray[i+1]=g[i+1]; }
+    // for (let i=0;i<subArray.length-1;i++) { if (subArray[i]!==' '&&subArray[i+1]!==' ') subArray[i+1]=h[i+1]; }
+    // for (let i=0;i<subArray.length;i++) { if (subArray[i]===' ') {subArray.splice(i,1); i--;} else break; }
+    // for (let i=0;i<subArray.length;i++) { if (subArray[i]===' '&&subArray[i+1]===' ') {subArray.splice(i,1); i--;} }
+    // alert(subArray.join(''));
 
-    milu.bark() // Milu barks: Go Go Go
+
+    // let subArray= new Array(a.length); let biendem =0;
+    // for (let i=0;i<subArray.length;i++) { subArray[i]=a[i]; }
+    // let g=(subArray.join('')).toUpperCase(); let h=(subArray.join('')).toLowerCase();
+    // for (let i=0;i<subArray.length;i++) { if (subArray[i]!==' ') subArray[i]=g[i];}
+    // for (let i=0;i<subArray.length;i++) { if (subArray[i]!==' ') biendem++; if (biendem>=2) subArray[i]=h[i]; }
+    // for (let i=0;i<subArray.length;i++) { if (subArray[i]===' ') {subArray.splice(i,1); i--;}}
+    // alert(subArray.join(''));
+
+
+
+    // let dateOfBirth = prompt("Ngày tháng năm sinh (DD/MM/YYYY): ");
+    // while (true) {
+    //     b = Number(dateOfBirth[0] + dateOfBirth[1]);
+    //     c = Number(dateOfBirth[3] + dateOfBirth[4]);
+    //     d = Number(dateOfBirth[6] + dateOfBirth[7] + dateOfBirth[8] + dateOfBirth[9]);
+    //     if (dateOfBirth[2]==='/'&& dateOfBirth[5]==='/'&& b > 0 && b <= 31 && c > 0 && c <= 12 && d > 0 && dateOfBirth.length === 10) break; else {
+    //         alert("Mời nhập lại ngày tháng năm sinh! ");
+    //         dateOfBirth = prompt("Ngày tháng năm sinh (DD/MM/YYYY): ");
+    //     }
+    // }
+
+
+
+
 </script>
 </body>
 </html>
