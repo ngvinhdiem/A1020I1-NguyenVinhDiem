@@ -79,7 +79,7 @@
         if (choose>=1&&choose<arrListCustomers.length) {
             for (let k=0;k<arrListCustomers[choose].length;k++) tong+=(k+1)+'. '+arrListCustomers[choose][k]+'\n';
             let chon=parseInt(prompt(tong));
-            if (chon>=0&&choose<=10) {
+            if (chon>=1&&choose<=11) {
                 arrListCustomers[choose][chon-1]=prompt(arrListCustomers[choose][chon - 1]);
             tong='';
             for (let k=0;k<arrListCustomers[choose].length;k++) tong+=(k+1)+'. '+arrListCustomers[choose][k]+'\n';

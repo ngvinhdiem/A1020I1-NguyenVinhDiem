@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request6</title>
+    <script src="employee.js"></script>
+    <script src="function.js"></script>
+</head>
+<body>
+<script>
+    var arrListEmployees = [];
+    let i=0;
+    function displayMainMenu() {
+        let num = parseInt(prompt("1. Add New Employee" + '\n' + "2. Display Information Employee" + '\n' + "3. Display salary of Employee" + '\n'+ "4. Exit"));
+        switch (num) {
+            case 1:
+                addNewEmployee();
+                break;
+            case 2:
+                displayEmployee();
+                break;
+            case 3:
+                displaySalary();
+                break;
+            case 4:
+                break;
+            default:
+                alert("Không có mục này!");
+                displayMainMenu();
+        }
+    }
+
+
+    function  addNewEmployee() {
+        let emp = new Employee();
+        let name = prompt("Họ và tên: ");
+        while (true) {
+            if (name.length!==0) {
+                name=changeString(name);
+                break; }
+            else {alert("Mời nhập lại họ và tên: "); name = prompt("Họ và tên: "); }}
+        let idNumber = prompt("Số CMND: ");
+        while (true) {
+            if (validateIdNumber(idNumber)===true) break; else {
+                alert("Mời nhập lại số CMND! ");
+                idNumber = prompt("Số CMND: ");
+            }
+        }
+        let dateOfBirth = prompt("Ngày tháng năm sinh: ");
+        while (true) {
+            if (validateDate(dateOfBirth)===true) break; else {
+                alert("Mời nhập lại ngày tháng năm sinh! ");
+                dateOfBirth = prompt("Ngày tháng năm sinh (DD/MM/YYYY): ");
+            }
+        }
+        let email = prompt("Email: ");
+        while (true) {
+            if (validateEmail(email)===true) break; else {
+                alert("Mời nhập lại email!");
+                email = prompt("Email: ");
+            }
+        }
+        let address = prompt("Địa chỉ: ");
+        changeAddress(address);
+        let phone= prompt("Số điện thoại: ");
+        while (true) {
+            if (validatePhone(phone)===true) break; else {
+                alert("Mời nhập lại số điện thoại! ");
+                idNumber = prompt("Số điện thoại: ");
+            }
+        }
+        let level= prompt("Cấp:");
+        let location=prompt("Vị trí làm việc (Manager, Sale, Marketing): ");
+        changeLocation(location);
+        emp.setName(name);
+        emp.setID(idNumber);
+        emp.setDoB(dateOfBirth);
+        emp.setEmail(email);
+        emp.setAdress(address);
+        emp.setPhone(phone);
+        emp.setLevel(level);
+        emp.setLocation(location);
+        arrListEmployees.push(emp);
+        alert("Thêm thành công!");
+        displayMainMenu();
+    }
+
+
+    function displayEmployee() {
+        let sum='';
+        for (let j=0;j<arrListEmployees.length;j++) sum+=(j+1)+'. '+arrListEmployees[j].getName()+'\n';
+        let choose = parseInt(prompt("Chọn Employee cần hiển thị thông tin:"+'\n'+sum));
+        let realChoose=choose-1;
+        if (choose>=1&&choose<=arrListEmployees.length) {
+            let tong='';
+           tong='1. Họ và tên: '+arrListEmployees[realChoose].getName()+'\n'+'2. CMND: '+arrListEmployees[realChoose].getID()+'\n'+'3. Ngày tháng năm sinh: '+arrListEmployees[realChoose].getDoB()+'\n'+'4. Email: '+arrListEmployees[realChoose].getEmail()+'\n'+'5. Địa chỉ: '+arrListEmployees[realChoose].getAdress()+'\n'+'6. Số điện thoại: '+arrListEmployees[realChoose].getPhone()+'\n'+'7. Cấp: '+arrListEmployees[realChoose].getLevel()+'\n'+'8. Vị trí làm việc (Manager, Sale, Marketing): '+arrListEmployees[realChoose].getLocation();
+            alert(tong);
+        } else alert('Không có Employee này!');
+        displayMainMenu();
+    }
+
+
+    function  displaySalary() {
+        let sum=''; let a=0;
+        for (let j=0;j<arrListEmployees.length;j++) sum+=(j+1)+'. '+arrListEmployees[j].getName()+'\n';
+        let choose = parseInt(prompt("Chọn Employee cần hiển thị trợ cấp:"+'\n'+sum));
+        let realChoose=choose-1;
+        if (choose>=1&&choose<=arrListEmployees.length) {
+        let payment=arrListEmployees[realChoose].getSalary();
+        alert("Số tiền trợ cấp Employee "+arrListEmployees[realChoose].getName()+" được nhận: "+payment);
+        } else alert('Không có Employee này!');
+        displayMainMenu();
+    }
+
+    displayMainMenu();
+
+</script>
+</body>
+</html>
