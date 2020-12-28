@@ -23,7 +23,7 @@
     // let milu = new Dog('Milu', 'Black', 'Becgie');
     //
     // milu.bark() // Milu barks: Go Go Go
-    let a = '  v     I l        L A';
+    // let a = '  v     I l        L A';
 
 
     //
@@ -60,7 +60,42 @@
 
 
 
+    var email="abc@123.com";
+    function validateEmail(email) {
+        const re = /([a-zA-Z])+@+(([a-zA-Z])+\.)+([com]{3})+$/;
+        return re.test(String(email).toLowerCase());
+    }
 
+    function validateDate(date) {
+        const er= /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/;
+        return er.test(String(date));
+    }
+
+
+    var number="123456789";
+
+
+    function  validateIdNumber(number) {
+        const tes1 = /^([1-9])\d{8}$/;
+        const tes2 = /^([1-9])\d{11}$/;
+        return !(tes1.test(String(number)) === false && tes2.test(String(number)) === false);
+    }
+    document.write(validateIdNumber(number));
+
+
+
+
+
+
+
+
+    function validateName(name){
+        name=name.trim();
+        name=name.toLowerCase();
+        let array=[];
+        array=name.split(' ');
+
+    }
 </script>
 </body>
 </html>

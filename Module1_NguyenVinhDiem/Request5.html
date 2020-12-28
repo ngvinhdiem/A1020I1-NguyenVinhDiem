@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arrListCustomers = [[]]; let i=0;
+    function displayMainMenu() {
+        let num = parseInt(prompt("1. Add New Customer" + '\n' + "2. Display Information Customer" + '\n' + "3. Edit Information Customer" + '\n' + "4. Delete Customer" + '\n' + "5. Exit"));
+        switch (num) {
+            case 1:
+                addNewCustomer();
+                break;
+            case 2:
+                displayCustomers();
+                break;
+            case 3:
+                editCustomer();
+                break;
+            case 4:
+                deleteCustomer();
+                break;
+            case 5:
+                break;
+            default:
+                alert("Không có mục này!")
+        }
+    }
+
+
+
+
+
+    function addNewCustomer() {
+        let customerInfo = [];
+        let name = prompt("Họ và tên: ");
+        let idNumber = prompt("Số CMND: ");
+        let dateOfBirth = prompt("Ngày tháng năm sinh: ");
+        let email = prompt("Email: ");
+        let address = prompt("Địa chỉ: ");
+        let customerType = prompt("Loại Customer (Diamond, Platinum, Gold, Silver, Member): ");
+        let discount = parseInt(prompt("Giảm giá (%): "));
+        let extra = prompt("Số lượng đi kèm: ");
+        let rentDays = parseInt(prompt("Số ngày thuê: "));
+        let serviceType = prompt("Loại dịch vụ (Villa, House, Room): ");
+        let roomType = prompt("Loại phòng thuê (Vip, Business,  Normal): ");
+        customerInfo.push(name);
+        customerInfo.push(idNumber);
+        customerInfo.push(dateOfBirth);
+        customerInfo.push(email);
+        customerInfo.push(address);
+        customerInfo.push(customerType);
+        customerInfo.push(discount);
+        customerInfo.push(extra);
+        customerInfo.push(rentDays);
+        customerInfo.push(serviceType);
+        customerInfo.push(roomType);
+        arrListCustomers.push(customerInfo);
+        alert("Thêm thành công!");
+        displayMainMenu();
+    }
+    function displayCustomers() {
+        let sum=''; let tong='';
+        for (let j=1;j<arrListCustomers.length;j++) sum+=(j)+'. '+arrListCustomers[j][0]+'\n';
+        let choose = parseInt(prompt(sum));
+        if (choose>=1&&choose<arrListCustomers.length) {
+        for (let k=0;k<arrListCustomers[choose].length;k++) tong+=(k+1)+'. '+arrListCustomers[choose][k]+'\n';
+        alert(tong); }
+        else alert('Không có khách hàng này!');
+        displayMainMenu();
+    }
+    
+    function editCustomer() {
+        let sum='Chọn khách hàng cần chỉnh sửa: '+'\n'; let tong='';
+        for (let j=1;j<arrListCustomers.length;j++) sum+=(j)+'. '+arrListCustomers[j][0]+'\n';
+        let choose = parseInt(prompt(sum));
+        if (choose>=1&&choose<arrListCustomers.length) {
+            for (let k=0;k<arrListCustomers[choose].length;k++) tong+=(k+1)+'. '+arrListCustomers[choose][k]+'\n';
+            let chon=parseInt(prompt(tong));
+            if (chon>=0&&choose<=10) {
+                arrListCustomers[choose][chon-1]=prompt(arrListCustomers[choose][chon - 1]);
+            tong='';
+            for (let k=0;k<arrListCustomers[choose].length;k++) tong+=(k+1)+'. '+arrListCustomers[choose][k]+'\n';
+            alert("Chỉnh sửa thành công!")
+            alert(tong);}
+            else alert("Không có thông tin này!");
+
+        }
+        else alert('Không có khách hàng này!');
+        displayMainMenu();
+    }
+
+    function  deleteCustomer() {
+        let sum='Chọn khách hàng cần xóa: '+'\n'; let tong='';
+        for (let j=1;j<arrListCustomers.length;j++) sum+=(j)+'. '+arrListCustomers[j][0]+'\n';
+        let choose = parseInt(prompt(sum));
+        if (choose>=1&&choose<arrListCustomers.length) {
+            arrListCustomers.splice(choose,1);
+            for (let j=1;j<arrListCustomers.length;j++) tong+=(j)+'. '+arrListCustomers[j][0]+'\n';
+            alert("Xóa thành công!");
+            alert(tong);
+
+        }
+        else alert('Không có khách hàng này!');
+        displayMainMenu();
+    }
+
+    displayMainMenu();
+
+
+</script>
+</body>
+</html>

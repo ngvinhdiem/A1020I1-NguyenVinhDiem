@@ -6,22 +6,41 @@
 </head>
 <body>
 <script>
+
+
     let dem1 = 0, dem2 = 0, dem = 0, numEx = '';
     let a;
     let b, c, d;
     let check = true;
 
     let name = prompt("Họ và tên: ");
+    function changeString(name){
+        name=name.trim();
+        name=name.toLowerCase();
+        let array=[];
+        array=name.split(' ');
+        let result=""; let word="";
+        for (let i=0;i<array.length;i++) {
+            if (array[i]!=="") {
+                word=array[i].charAt(0).toUpperCase()+array[i].substring(1);
+                result+=word+" ";
+            }
+        }
+        result=result.trim();
+        return result;
+    }
     while (true) {
     if (name.length!==0) {
-    let subArray= new Array(name.length);
-    for (let i=0;i<subArray.length;i++) { subArray[i]=name[i]; }
-    let g=(subArray.join('')).toUpperCase(); let h=(subArray.join('')).toLowerCase();
-    for (let i=0;i<subArray.length;i++) { if (subArray[0]!==' ') subArray[0]=g[0]; if (subArray[i]===' '&&subArray[i+1]!==' ') subArray[i+1]=g[i+1]; }
-    for (let i=0;i<subArray.length-1;i++) { if (subArray[i]!==' '&&subArray[i+1]!==' ') subArray[i+1]=h[i+1]; }
-    for (let i=0;i<subArray.length;i++) { if (subArray[i]===' ') {subArray.splice(i,1); i--;} else break; }
-    for (let i=0;i<subArray.length;i++) { if (subArray[i]===' '&&subArray[i+1]===' ') {subArray.splice(i,1); i--;} }
-    name=subArray.join(''); break; }
+    // let subArray= new Array(name.length);
+    // for (let i=0;i<subArray.length;i++) { subArray[i]=name[i]; }
+    // let g=(subArray.join('')).toUpperCase(); let h=(subArray.join('')).toLowerCase();
+    // for (let i=0;i<subArray.length;i++) { if (subArray[0]!==' ') subArray[0]=g[0]; if (subArray[i]===' '&&subArray[i+1]!==' ') subArray[i+1]=g[i+1]; }
+    // for (let i=0;i<subArray.length-1;i++) { if (subArray[i]!==' '&&subArray[i+1]!==' ') subArray[i+1]=h[i+1]; }
+    // for (let i=0;i<subArray.length;i++) { if (subArray[i]===' ') {subArray.splice(i,1); i--;} else break; }
+    // for (let i=0;i<subArray.length;i++) { if (subArray[i]===' '&&subArray[i+1]===' ') {subArray.splice(i,1); i--;} }
+    // name=subArray.join('');
+    name=changeString(name);
+    break; }
     else {alert("Mời nhập lại họ và tên: "); name = prompt("Họ và tên: "); }}
 
 
@@ -47,7 +66,7 @@
         c = Number(dateOfBirth[3] + dateOfBirth[4]);
         d = Number(dateOfBirth[6] + dateOfBirth[7] + dateOfBirth[8] + dateOfBirth[9]);
         if (dateOfBirth[2]==='/'&& dateOfBirth[5]==='/'&& b > 0 && b <= 31 && c > 0 && c <= 12 && d > 0 && dateOfBirth.length === 10) break; else {
-            alert("Mời nhập lại ngày tháng năm sinh! ");
+                alert("Mời nhập lại ngày tháng năm sinh! ");
             dateOfBirth = prompt("Ngày tháng năm sinh (DD/MM/YYYY): ");
         }
     }
@@ -64,7 +83,7 @@
             }
         }
         if (dem1 === 1 && dem2 === 1) break; else {
-            alert("Mời nhập lại email!" + dem1 + dem2);
+            alert("Mời nhập lại email!");
             dem1 = 0;
             dem2 = 0;
             email = prompt("Email: ");
@@ -75,7 +94,7 @@
 
     let address = prompt("Địa chỉ: ");
     while (true) {
-        if (name.length!==0) {
+        if (address.length!==0) {
             let subArray= new Array(address.length);
             for (let i=0;i<subArray.length;i++) { subArray[i]=address[i]; }
             let g=(subArray.join('')).toUpperCase(); let h=(subArray.join('')).toLowerCase();

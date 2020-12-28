@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let name=prompt("nhap:");
+    function changeName(name){
+        name=name.trim();
+        name=name.toLowerCase();
+        let array=[];
+        array=name.split(' ');
+        alert(array);
+        let result=""; let word="";
+        for (let i=0;i<array.length;i++) {
+            if (array[i]!=="") {
+                word=array[i].charAt(0).toUpperCase()+array[i].substring(1);
+                result+=word+" ";
+            }
+        }
+        result=result.trim();
+        return result;
+    }
+
+</script>
+</body>
+</html>

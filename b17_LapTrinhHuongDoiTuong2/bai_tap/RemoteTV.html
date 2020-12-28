@@ -6,16 +6,6 @@
 </head>
 <body>
 <script>
-    class Remote {
-        constructor(tv) {
-            this.tv=tv;
-        }
-        changeChannel(channel) {
-            this.tv.move(channel); }
-        changeVolume(volume) {
-            this.tv.changeVolume(volume);}
-    }
-
     class TV {
         constructor(channel,volume) {
             this.channel=channel;
@@ -23,27 +13,35 @@
         }
         status=false;
         turn() {this.status=!this.status; }
-        move(b) {this.channel=b;}
-        changeVolume(volume) {this.volume+=volume;}
+        changeChannelTV(b) {this.channel=b;}
+        changeVolumeTV(volume) {this.volume+=volume;}
+    }
+
+    class Remote {
+        constructor(tv) {
+            this.tv=tv;
+        }
+        batTatRM() {this.tv.turn();}
+        changeChannelRM(b) {
+            this.tv.changeChannelTV(b); }
+        changeVolumeRM(volume) {
+            this.tv.changeVolumeTV(volume);}
     }
 
 
-
-
-
-    let pana = new Remote('123');
     let sony = new TV(1,50);
+    let pana = new Remote(sony);
     console.log(sony.status);
-    sony.turn();
+    pana.batTatRM();
     console.log(sony.status);
-    sony.move(3);
+   pana.changeChannelRM(3);
     console.log(sony.channel);
-    pana.changeChannel(7);
+    pana.changeChannelRM(7);
     console.log(sony.channel);
-    pana.changeVolume(2);
+    pana.changeVolumeRM(2);
     console.log(sony.volume);
     console.log(sony.status);
-    pana.turn(sony);
+    pana.batTatRM();
     console.log(sony.status);
 
 </script>
