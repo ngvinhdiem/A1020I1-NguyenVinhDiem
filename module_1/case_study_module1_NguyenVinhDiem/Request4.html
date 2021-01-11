@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numPer = 0;
+
+    let d = 0;
+    let sum = '';
+    let e;
+    let arrNameCustomers = [];
+
+    function display() {
+        let dem = 0;
+        let check = false;
+        let num = parseInt(prompt("1.Add Name Customer" + '\n' + "2.Delete Customer"));
+        if (num === 1) {
+            numPer = parseInt(prompt("Nhập số lượng customer muốn thêm: "));
+            if (numPer > 0) {
+                for (let i = d; i < d + numPer; i++) {
+                    info = prompt("Nhập thông tin customer thứ " + (i + 1));
+                    for (let j = 0; j < i; j++) {
+                        if (info === arrNameCustomers[j]) {
+                            dem++;
+                            alert(("Khách hàng nãy đã có!"));
+                            break;
+                        }
+                    }
+                    if (dem === 0) arrNameCustomers[i] = info; else {
+                        i--;
+                        dem = 0;
+                    }
+                }
+                arrNameCustomers.sort();
+                sum = '';
+                for (let i = 0; i < d + numPer; i++) {
+                    sum += '' + (i + 1) + '. ' + arrNameCustomers[i] + '\n';
+                }
+                alert(sum);
+                e = d;
+                d += numPer;
+                display();
+            } else {
+                alert("Failed!");
+                display();
+            }
+
+        } else if (num === 2) {
+            let namePerDel = prompt("Nhập tên customer muốn xóa: ");
+            for (let i = 0; i < d + numPer; i++) {
+                if (namePerDel === arrNameCustomers[i]) {
+                    check = true;
+                }
+            }
+            if (check === false) alert("Không có người này!");
+            else if (check === true) {
+                d--;
+                for (let i = 0; i < d + numPer; i++) {
+                    if (namePerDel === arrNameCustomers[i]) {
+                        arrNameCustomers.splice(i, 1);
+                    }
+                }
+                sum = '';
+                for (let i = 0; i < d; i++) {
+                    sum += '' + (i + 1) + '. ' + arrNameCustomers[i] + '\n';
+                }
+                if (arrNameCustomers.length > 0) alert(sum); else alert("Không còn khách hàng nào!");
+            }
+            display();
+        }
+        else {
+            alert("Mục bạn chọn không có!");
+            display();
+        }
+    }
+
+    display();
+</script>
+</body>
+</html>

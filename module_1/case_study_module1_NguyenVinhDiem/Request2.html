@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request2</title>
+</head>
+<body>
+<script>
+    let a1=0,a2=0,a3=0,a4=0;
+    let b;
+    let name = "Nguyễn Vinh Điềm";
+    let idNumber = "123456789";
+    let dateOfBirth = "27/10/2002";
+    let email = "ngvinhdiem@gmail.com";
+    let address = "Đà Nẵng";
+    let customerType = "Diamond";
+    let discount = 50;
+    let extra = "1";
+    let rentDays = 15;
+    let serviceType = "Villa";
+    let roomType = "Vip";
+    let payment = 500 * rentDays * (1 - (discount / 100));
+
+    function alertAll() {
+        alert("Họ và tên: " + name + '\n' + "Số CMND: " + idNumber + "\n" + "Ngày tháng năm sinh: " + dateOfBirth + "\n" + "Email: " + email + "\n" + "Địa chỉ: " + address + "\n" + "Loại Customer (Diamond, Platinum, Gold, Silver, Member): " + customerType + "\n" + "Giảm giá (%): " + discount + "\n" + "Số lượng đi kèm: " + extra + "\n" + "Số ngày thuê: " + rentDays + "\n" + "Loại dịch vụ (Villa, House, Room): " + serviceType + "\n" + "Loại phòng thuê (Vip, Business,  Normal): " + roomType);
+    }
+
+    function display() {
+        let a = prompt("1. Show Information Customer" + "\n" + "2. Edit Information Customer" + '\n' + "3. Show the amount to be paid after discount" + '\n' + "4. Exit");
+        switch (a) {
+            case '1':
+                alertAll();
+                display();
+                break;
+            case '2':
+                b = prompt("Chọn thông tin cần chỉnh sửa:" + "\n" + "1. Họ và tên: " + name + '\n' + "2. Số CMND: " + idNumber + "\n" + "3. Ngày tháng năm sinh: " + dateOfBirth + "\n" + "4. Email: " + email + "\n" + "5. Địa chỉ: " + address + "\n" + "6. Loại Customer (Diamond, Platinum, Gold, Silver, Member): " + customerType + "\n" + "7. Giảm giá (%): " + discount + "\n" + "8. Số lượng đi kèm: " + extra + "\n" + "9. Số ngày thuê: " + rentDays + "\n" + "10. Loại dịch vụ (Villa, House, Room): " + serviceType + "\n" + "11. Loại phòng thuê (Vip, Business,  Normal): " + roomType);
+                switch (b) {
+                    case '1':
+                        name = prompt("Họ và tên:");
+                        alertAll();
+                        break;
+                    case '2':
+                        idNumber = prompt("Số CMND:");
+                        alertAll();
+                        break;
+                    case '3':
+                        dateOfBirth = prompt("Ngày tháng năm sinh:");
+                        alertAll();
+                        break;
+                    case '4':
+                        email = prompt("Email: ");
+                        alertAll();
+                        break;
+                    case '5':
+                        address = prompt("Địa chỉ: ");
+                        alertAll();
+                        break;
+                    case '6':
+                        customerType = prompt("Loại Customer (Diamond, Platinum, Gold, Silver, Member): ");
+                        alertAll();
+                        break;
+                    case '7':
+                        discount = parseInt(prompt("Giảm giá (%): "));
+                        alertAll();
+                        break;
+                    case '8':
+                        extra = prompt("Số lượng đi kèm: ");
+                        alertAll();
+                        break;
+                    case '9':
+                        rentDays = parseInt(prompt("Số ngày thuê: "));
+                        alertAll();
+                        break;
+                    case '10':
+                        serviceType = prompt("Loại dịch vụ (Villa, House, Room): ");
+                        alertAll();
+                        break;
+                    case '11':
+                        roomType = prompt("Loại phòng thuê (Vip, Business,  Normal): ");
+                        alertAll();
+                        break;
+                    default:
+                        alert("Failed");
+                }
+                display();
+                break;
+            case '3':
+                switch (serviceType) {
+                    case 'Villa':
+                        a1 = 500;
+                        break;
+                    case 'House':
+                        a1 = 300;
+                        break;
+                    case 'Room':
+                        a1 = 100;
+                        break;
+                }
+                switch (address) {
+                    case 'Đà Nẵng':
+                        a2 = 20;
+                        break;
+                    case 'Huế':
+                        a2 = 10;
+                        break;
+                    case 'Quảng Nam':
+                        a2 = 5;
+                        break;
+                }
+
+                switch (customerType) {
+                    case 'Diamond':
+                        a4 = 20;
+                        break;
+                    case 'Platinum':
+                        a4 = 10;
+                        break;
+                    case 'Gold':
+                        a4 = 5;
+                        break;
+                    case 'Silver':
+                        a4 = 2;
+                        break;
+                    case 'Member':
+                        a4 = 0;
+                        break;
+                }
+                if (rentDays >= 7) a3 = 30;
+                else if (rentDays >= 5) a3 = 20;
+                else if (rentDays >= 2) a3 = 10;
+                payment = a1 * rentDays - a2 - a3 - a4;
+                alert("Số tiền phải trả: " + payment);
+                display();
+                break;
+            case '4': break;
+            default:
+                alert("Bạn hãy chọn các chức năng có trong trình đơn");
+                display();
+        }
+    }
+    display();
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let count = 0;
+    let array = [];
+    function displayMenu() {
+        let choose = parseInt(prompt("1. Them phan tu vao mang \n2. Hien thi mang \n3. Hien thi cac phan tu la boi" +
+            " cua 3 va 5  \n4. Hien thi tong cac so boi chung 3 va 5 "));
+        switch (choose) {
+            case 1:
+                if (count < 20) {
+                    array[count] = parseInt(prompt("Phan tu thu " + (count + 1)));
+                    if (isNaN(array[count])) {
+                        alert("Phan tu nay khong phai 1 so!");
+                        displayMenu();
+                    }
+                    count++;
+                } else alert("Mang da du 20 phan tu!");
+                displayMenu();
+                break;
+            case 2:
+                let total = "";
+                for (let i = 0; i < count; i++) {
+                    total += array[i] + "  ";
+                }
+                alert("Cac phan tu trong mang: " + total);
+                displayMenu();
+                break;
+            case 3:
+                let totalNumber = "";
+                for (let i = 0; i < count; i++) {
+                    if (array[i] % 3 === 0 && array[i] % 5 === 0) totalNumber += array[i] + "  ";
+                }
+                alert("Cac phan tu la boi cua 3 va 5: " + totalNumber);
+                displayMenu();
+                break;
+            case 4:
+                let totalMod = 0;
+                for (let i = 0; i < count; i++) {
+                    if (array[i] % 3 === 0 && array[i] % 5 === 0) totalMod += array[i];
+                }
+                alert("Tong cac phan tu trong mang la boi cua 3 va 5: " + totalMod);
+                displayMenu();
+                break;
+            default:
+                alert("Moi nhap lai!");
+        }
+    }
+    displayMenu();
+</script>
+</body>
+</html>

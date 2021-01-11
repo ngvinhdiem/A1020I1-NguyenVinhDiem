@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="Nhập tên tìm kiếm" id="tenTimKiem"><input type="button" value="Tìm kiếm"
+                                                                          onclick="timKiem()"><br><br>
+<input type="button" value="Thêm mới NV" onclick="themMoi()">
+<p id="hienThi"></p>
+<br>
+​
+<script>
+    class NhanVien {
+        constructor(maNV, ten, ngaySinh, email) {
+            this.maNV = maNV;
+            this.ten = ten;
+            this.ngaySinh = ngaySinh;
+            this.email = email;
+        }
+    ​
+        getMaNV() {
+            return this.maNV;
+        }
+    ​
+        getTen() {
+            return this.ten;
+        }
+    ​
+        getNgaySinh() {
+            return this.ngaySinh;
+        }
+    ​
+        getEmail() {
+            return this.email;
+        }
+    ​
+        setMaNV(maNV) {
+            this.maNV = maNV;
+        }
+    ​
+        setTen(ten) {
+            this.ten = ten;
+        }
+    ​
+        setNgaySinh(ngaySinh) {
+            this.ngaySinh = ngaySinh;
+        }
+    ​
+        setEmail(email) {
+            this.email = email;
+        }
+    ​
+        getInfor() {
+            return "1. Mã NV: " + this.getMaNV() + "\n" +
+                "2. Tên NV: " + this.getTen() + "\n" +
+                "3. Ngày Sinh NV: " + this.getNgaySinh() + "\n" +
+                "4. Email NV: " + this.getEmail() + "\n"
+        }
+    }
+​
+    let danhSachNV = [];
+    let nhanVien1 = new NhanVien("001", "chanh1", "12/12/2000", "chanh@gmail.com");
+    let nhanVien2 = new NhanVien("002", "chanh2", "12/12/2000", "chanh@gmail.com");
+    let nhanVien3 = new NhanVien("003", "chanh2", "12/12/2000", "chanh@gmail.com");
+    let nhanVien4 = new NhanVien("004", "chanh2", "12/12/2000", "chanh@gmail.com");
+    danhSachNV.push(nhanVien1);
+    danhSachNV.push(nhanVien2);
+    danhSachNV.push(nhanVien3);
+    danhSachNV.push(nhanVien4);
+    hienThi(danhSachNV);
+​
+    function timKiem() {
+        let ten = document.getElementById("tenTimKiem").value;
+        let danhSachTK = [];
+        for (let i = 0; i < danhSachNV.length; i++) {
+            if (danhSachNV[i].getTen().includes(ten)) {
+                danhSachTK.push(danhSachNV[i]);
+            }
+        }
+        hienThi(danhSachTK);
+    }
+​
+    function themMoi() {
+        let maNV = prompt("Nhập mã NV")
+        let ten = prompt("Nhập tên");
+        let ngaySinh = prompt("Nhập ngày sinh :dd/mm/yyyy")
+        let email = prompt("Nhập email")
+        let nhanVien = new NhanVien(maNV, ten, ngaySinh, email);
+        danhSachNV.push(nhanVien);
+        hienThi(danhSachNV)
+    }
+​
+    function hienThi(danhSach) {
+        danhSach = sapXepDS(danhSach);
+        let bang = '<table border="1">\n' +
+            '    <tr>\n' +
+            '        <th>Stt</th>\n' +
+            '        <th>MãNV</th>\n' +
+            '        <th>Tên</th>\n' +
+            '        <th>Ngày Sinh</th>\n' +
+            '        <th>Email</th>\n' +
+            '        <th>Sửa</th>\n' +
+            '        <th>Xóa</th>\n' +
+            '    </tr>'
+        for (let i = 0; i < danhSach.length; i++) {
+            bang += '<tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + danhSach[i].getMaNV() + '</td>\n' +
+                '        <td>' + danhSach[i].getTen() + '</td>\n' +
+                '        <td>' + danhSach[i].getNgaySinh() + '</td>\n' +
+                '        <td>' + danhSach[i].getEmail() + '</td>\n' +
+                '        <td><input type="button" value="Sửa"onclick="suaThongTin(' + i + ')"></td>\n' +
+                '        <td><input type="button" value="Xóa" onclick="xoaNV(' + i + ')"></td>\n' +
+                '    </tr>'
+        }
+        bang += '</table>'
+​
+        document.getElementById("hienThi").innerHTML = bang;
+​
+    }
+​
+    function suaThongTin(i) {
+        let choose = parseInt(prompt("Hãy chọn thông tin cần sửa \n"
+            + danhSachNV[i].getInfor() +
+            "5.Exit"));
+        switch (choose) {
+            case 1:
+                danhSachNV[i].setMaNV(prompt("Nhập tên Mã cần sưuar"));
+                suaThongTin(i);
+                break;
+            case 2:
+                danhSachNV[i].setTen(prompt("Nhập tên cần sửa:"));
+                suaThongTin(i);
+                break;
+            case 3:
+                danhSachNV[i].setNgaySinh(prompt("Nhập tên ngày sinh"));
+                suaThongTin(i);
+                break;
+            case 4:
+                danhSachNV[i].setEmail(prompt("Nhập email cần sửa"));
+                suaThongTin(i);
+                break;
+            case 5:
+                break;
+            default:
+                suaThongTin(i);
+        }
+        hienThi(danhSachNV);
+    }
+​
+    function xoaNV(i) {
+        let xacNhanXoa = confirm(" Bạn có muốn xóa nhân viên " + danhSachNV[i].getTen());
+        if (xacNhanXoa) {
+            danhSachNV.splice(i, 1);
+        }
+        hienThi(danhSachNV);
+    }
+​
+    function sapXepDS(danhSach) {
+        danhSach.sort(function (a, b) {
+            let tenA = a.getTen();
+            let tenB = b.getTen();
+            if (tenA > tenB) {
+                return 1;
+            } else if (tenA < tenB) {
+                return -1
+            } else {
+                return 0;
+            }
+​
+        })
+        return danhSach;
+    }
+</script>
+</body>
+</html>

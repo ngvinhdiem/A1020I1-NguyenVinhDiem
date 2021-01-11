@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div style="color: red"></div>
+    <canvas id="canvasShape" width="1000" height="1000" style="border: 1px solid red;"></canvas>
+    <script>
+        let canvasObj = document.getElementById("canvasShape");
+        // canvasObj.style.transform = "rotate(90deg)";         // or -90 depending on need
+        let context = canvasObj.getContext("2d");
+
+        // context.arc(100, 100, 50, 0, 2*Math.PI);
+        // context.stroke();
+        // context.fillStyle = "pink";
+        // context.fill();
+
+        // C1
+        // context.rect(100, 200, 300, 500);
+        // context.stroke();
+        // context.fillStyle = "#79FF2C";
+        // context.fill();
+
+        // C2
+        context.fillStyle = "#c000ff";
+        context.fillRect(100, 200, 300, 500);
+
+        context.font = "italic 58px Cambria";
+        context.fillText("C1120G1", 100, 100);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tivi</title>
+</head>
+<body>
+<input id="kenh" placeholder="kenh"> <input id="amLuong" placeholder="am luong">
+<table>
+    <tr>
+        <td><input type="button" value="On/Off" onclick="moTatRM()"></td>
+        <td><input type="button" value="Vol(+)" onclick="thayDoiAmLuong('tang')"></td>
+        <td><input type="button" value="Chal(10)" onclick="chuyenKenh(10)"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="On/Off"></td>
+        <td><input type="button" value="Vol(-)"onclick="thayDoiAmLuong('giam')"></td>
+        <td><input type="button" value="Chal(11)"onclick="chuyenKenh(11)"></td>
+    </tr>
+</table>
+<script>
+    // Tiv=====================================
+    // Có thuộc tính mô tả kênh hiện thời đang phát.
+    // Có thuộc tính mô tả âm lượng hiện thời
+    // Có thuộc tính mô tả trạng thái bật, tắt.
+    // Có tính năng điều khiển chuyển đến kênh nào đó.
+    // Có tính năng điều khiển âm lượng.
+    // remote======================================
+    // Có thuộc tính mã.
+    // Có tính năng điều khiển chuyển kênh.
+    // Có tính năng điều khiển âm lượng.
+
+    class Tivi{
+        constructor() {
+            this.kenh=0;
+            this.amLuong=0;
+            this.trangThai=false;
+        }
+        getKenhTV(){
+            return this.kenh;
+        }
+        getAmLuongTV(){
+            return this.amLuong;
+        }
+        getTrangThaiTV(){
+            return this.trangThai;
+        }
+        batTatTV(){
+            this.trangThai = !this.trangThai
+        }
+        chuyenKenhTV(kenh){
+            this.kenh=kenh
+        }
+        tangAmLuongTV(){
+            if (this.trangThai){
+                this.amLuong++;
+            }
+
+        }
+        giamAmLuongTV(){
+            if (this.trangThai){
+                this.amLuong--;
+            }
+        }
+
+    }
+
+    class Remote{
+        constructor(tivi) {
+            this.tivi =tivi;
+        }
+        batTatRM(){
+            this.tivi.batTatTV();
+        }
+        chuyenKenhRM(kenh){
+            this.tivi.chuyenKenhTV(kenh)
+        }
+        tangAmLuongRM(){
+            this.tivi.tangAmLuongTV();
+        }
+        giamAmLuongRM(){
+            this.tivi.giamAmLuongTV();
+        }
+    }
+
+    let tivi = new Tivi();
+    let remote = new Remote(tivi);
+    function moTatRM() {
+        remote.batTatRM();
+       document.getElementById("kenh").value= tivi.getTrangThaiTV();
+    }
+    function thayDoiAmLuong(tangGiam) {
+        if (tangGiam==="giam"){
+            remote.giamAmLuongRM();
+           document.getElementById("amLuong").value= tivi.getAmLuongTV();
+        }else {
+            remote.tangAmLuongRM();
+            document.getElementById("amLuong").value= tivi.getAmLuongTV();
+        }
+    }
+    function chuyenKenh(kenh) {
+       remote.chuyenKenhRM(kenh);
+       document.getElementById("kenh").value= tivi.getKenhTV();
+    }
+    // alert(tivi.getTrangThaiTV());
+    // remote.batTatRM()
+    // alert(tivi.getTrangThaiTV());
+    // alert("am luong: "+ tivi.getAmLuongTV()+" kenh: "+ tivi.getKenhTV())
+    // remote.chuyenKenhRM(10);
+    // remote.tangAmLuongRM();
+    // remote.tangAmLuongRM();
+    // remote.tangAmLuongRM();
+    // remote.tangAmLuongRM();
+    // remote.tangAmLuongRM();
+    // alert("am luong: "+ tivi.getAmLuongTV()+" kenh: "+ tivi.getKenhTV())
+</script>
+</body>
+</html>

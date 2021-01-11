@@ -2,9 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/b4_GitHTML/thuc_hanh/CloneDuAnTuGit/wf-hello" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/b4_GitHTML/thuc_hanh/TaoDuAnMoiTrenGitHub/my-new-project" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bai_4/thuc_hanh/CloneDuAnTuGit/wf-hello" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bai_4/thuc_hanh/TaoDuAnMoiTrenGitHub/my-new-project" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/module_1/b4_GitHTML/thuc_hanh/CloneDuAnTuGit/wf-hello" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/module_1/b4_GitHTML/thuc_hanh/TaoDuAnMoiTrenGitHub/my-new-project" vcs="Git" />
   </component>
 </project>

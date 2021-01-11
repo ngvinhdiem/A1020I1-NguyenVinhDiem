@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Điện thoại</title>
+</head>
+<body>
+<input type="text" id="iphone"><input type="button" value="send" onclick="gui('iphone')"><input type="button"
+                                                                                                value="show"
+                                                                                                onclick="hien('iphone')"><br><br>
+<input type="text" id="nokia"><input type="button" value="send" onclick="gui('nokia')"><input type="button" value="show" onclick="hien('nokia')">
+<script>
+    class DienThoai{
+        constructor() {
+            this.trangThai =true;
+            this.pin=11;
+            this.vungNhoST=[];
+            this.vungNhoDaGu=[];
+            this.vungNhoDaNhan=[];
+        }
+        getTrangThai(){
+            return this.trangThai;
+        }
+        getPin(){
+            return this.pin;
+        }
+        batTat(){
+            this.trangThai = !this.trangThai;
+            this.pin--;
+        }
+        sacPin(){
+            this.pin=100;
+        }
+        soanTN(tinNhan){
+            if (this.pin>10){
+                this.vungNhoST.push(tinNhan);
+            }else {
+                alert(" pin yếu. yêu cầu sạc")
+                this.sacPin();
+            }
+
+            this.pin--;
+        }
+        nhanTN(tinNhan){
+            this.vungNhoDaNhan.push(tinNhan);
+            this.pin--;
+        }
+        guiTn(dienThoai, tinNhan){
+            this.soanTN(tinNhan);
+            this.vungNhoDaGu=this.vungNhoST;
+            dienThoai.nhanTN(this.vungNhoDaGu);
+            this.pin--;
+        }
+        showTNDaGui(){
+            alert(this.vungNhoDaGu);
+            this.pin--;
+        }
+        getTNDaNhan(){
+            this.pin--;
+            return (this.vungNhoDaNhan);
+        }
+    }
+
+    let iphone = new DienThoai();
+    let nokia = new DienThoai();
+    function gui(ten) {
+        if (ten=="iphone"){
+            let tn =document.getElementById("iphone").value;
+            iphone.guiTn(nokia, tn);
+            document.getElementById("nokia").value= nokia.getTNDaNhan();
+        }else {
+            let tn =document.getElementById("nokia").value;
+            nokia.guiTn(iphone, tn);
+            document.getElementById("iphone").value= iphone.getTNDaNhan();
+        }
+    }
+    // iphone.guiTn(nokia, "Xin chào Nokia");
+    // nokia.showTNDaNhan();
+    // nokia.guiTn(iphone,"Chào inphoe")
+    // nokia.guiTn(iphone,"Chào inphoe")
+    // iphone.showTNDaNhan();
+</script>
+</body>
+</html>

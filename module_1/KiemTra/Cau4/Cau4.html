@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request6</title>
+    <script src="customer.js"></script>
+    <script src="function.js"></script>
+</head>
+<body>
+<script>
+    let arrListCustomers = [];
+    let i = 0;
+    function displayMainMenu() {
+        let num = parseInt(prompt("1. Thêm khách hàng" + '\n' + "2. Hiển thị danh sách khách hàng"));
+        switch (num) {
+            case 1:
+                addNewCustomer();
+                break;
+            case 2:
+                displayCustomer();
+                break;
+            default:
+                alert("Không có mục này!");
+                displayMainMenu();
+        }
+    }
+    function addNewCustomer() {
+        let cus = new Customer();
+
+        let idNumber = prompt("Mã khách hàng: ");
+        while (true) {
+            if (idNumber.length > 0) break; else {
+                alert("Mời nhập lại mã khách hàng!");
+                idNumber = prompt("Mã khách hàng: ");
+            }
+        }
+        let name = prompt("Tên khách hàng: ");
+        while (true) {
+            if (name.length !== 0) {
+                name = changeString(name);
+                break;
+            } else {
+                alert("Mời nhập lại tên khách hàng! ");
+                name = prompt("Tên khách hàng: ");
+            }
+        }
+        let phone = prompt("Số điện thoại: ");
+        while (true) {
+            if (validatePhone(phone) === true) break; else {
+                alert("Mời nhập lại số điện thoại! ");
+                phone = prompt("Số điện thoại: ");
+            }
+        }
+        let address = prompt("Địa chỉ: ");
+        changeString(address);
+
+        let email = prompt("Email: ");
+        while (true) {
+            if (validateEmail(email) === true) break; else {
+                alert("Mời nhập lại email!");
+                email = prompt("Email: ");
+            }
+        }
+        cus.setID(idNumber);
+        cus.setName(name);
+        cus.setEmail(email);
+        cus.setAdress(address);
+        cus.setPhone(phone);
+        arrListCustomers.push(cus);
+        alert("Thêm thành công!");
+        displayMainMenu();
+    }
+    function displayCustomer() {
+
+        let sum = '';
+        for (let j = 0; j < arrListCustomers.length; j++) sum += (j + 1) + '. ' + arrListCustomers[j].getName() + '\n';
+        alert("Danh sách khách hàng: \n"+sum);
+        displayMainMenu();
+    }
+    displayMainMenu();
+</script>
+</body>
+</html>

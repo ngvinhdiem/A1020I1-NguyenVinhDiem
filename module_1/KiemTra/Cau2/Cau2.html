@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function displayMenu() {
+        let mark = parseInt(prompt("Moi nhap vao diem cua hoc sinh:"));
+        addMark(mark);
+    }
+
+    function addMark(mark) {
+        if (parseInt(mark) < 0 || parseInt(mark) > 100) {
+            alert("Moi nhap lai diem!");
+            displayMenu();
+        }
+        if (mark >= 48) {
+            if (mark % 5 >= 3) mark += (5 - mark % 5);
+        }
+        if (mark < 50) {
+            result = "TRUOT!";
+        } else {
+            result = "DAU!";
+        }
+        alert("Diem sau khi da lam tron: " + mark + "\nKet qua: " + result);
+        displayMenu();
+    }
+
+    displayMenu();
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let array = [];
+    let n;
+    let k;
+    function displayMenu() {
+        let choose = parseInt(prompt("1. Them n phan tu vao mang \n2. Nhap so nguyen duong k \n3. Hien thi so luong" +
+            " cap so chia het cho k  "));
+        switch (choose) {
+            case 1:
+            function addN() {
+                n = parseInt(prompt("Nhap so luong phan tu:"));
+                if (n <= 50 && n > 0) {
+                    for (let i = 0; i < n; i++) {
+                        array[i] = parseInt(prompt("Phan tu thu " + (i + 1)));
+                        if (isNaN(array[i])) {
+                            alert("Phan tu nay khong phai 1 so!");
+                            i--;
+                        }
+                    }
+                } else {
+                    alert("Moi nhap lai n!");
+                    addN();
+                }
+            }
+                addN();
+                displayMenu();
+                break;
+            case 2:
+            function addK() {
+                k = parseInt(prompt("Nhap so nguyen duong k:"));
+                if (k > 0) displayMenu();
+                else {
+                    alert("Moi nhap lai k!");
+                    addK();
+                }
+            }
+                addK();
+                break;
+            case 3:
+                let subArray = [];
+                let total = "";
+                let count = 0;
+                for (let i = 0; i < n; i++) {
+                    for (let j = 0; j < n; j++) {
+                        if (j !== i && (array[i] + array[j]) % k === 0) {
+                            let check = true;
+                            if (subArray.length>=2) {
+                                for (let l = 0; l < subArray.length; l++) {
+                                    if ((array[i] === subArray[l] && array[j] === subArray[l + 1]) ||
+                                        (array[i] === subArray[l] && array[j] === subArray[l - 1])) {
+                                        check = false;
+                                    }
+                                }
+                            }
+                            if (check === true) {
+                                subArray.push(array[i]);
+                                subArray.push(array[j]);
+                                total += "(" + array[i] + "," + array[j] + ")  ";
+                                count++;
+                            }
+
+                        }
+                    }
+                }
+                alert("Co " + count + " cap so thoa man yeu cau: " + total);
+                displayMenu();
+                break;
+            default:
+                alert("Moi nhap lai!");
+                displayMenu();
+        }
+    }
+    displayMenu();
+</script>
+</body>
+</html>
