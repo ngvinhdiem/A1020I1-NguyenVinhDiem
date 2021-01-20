@@ -6,7 +6,9 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Date;
 class StopWatch {
-    Date now,startTime,endTime;
+    Date now;
+    Date startTime;
+    Date endTime;
 
     public StopWatch() {
         now = new Date();
@@ -36,7 +38,10 @@ public class XayDungLopStopWatch {
             array[i] = generator.nextInt();
         }
         System.out.println(Arrays.toString(array));
-        int index,temp,i,j;
+        int index;
+        int temp;
+        int i;
+        int j;
         watch.start();
         for (i = 0; i < num-1; i++) {
             index = i;
