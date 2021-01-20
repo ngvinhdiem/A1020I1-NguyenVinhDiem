@@ -7,6 +7,12 @@ import java.util.Scanner;
 import java.util.Date;
 class StopWatch {
     Date now,startTime,endTime;
+
+    public StopWatch() {
+        now = new Date();
+        this.startTime=now;
+    }
+
     public void start() {
         now = new Date();
         this.startTime=now;
