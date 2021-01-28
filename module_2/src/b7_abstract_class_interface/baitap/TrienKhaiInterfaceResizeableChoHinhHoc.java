@@ -1,4 +1,27 @@
-package b6_ke_thua.thuchanh;
+package b7_abstract_class_interface.baitap;
+interface Resizeable {
+    abstract void resize(double percent);
+}
+
+public class TrienKhaiInterfaceResizeableChoHinhHoc {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(5,6);
+        Circle circle = new Circle(4);
+        Square square = new Square(7);
+        System.out.println("Before resizing:");
+        System.out.println("S Rectangle: "+rectangle.getArea());
+        System.out.println("S Circle: "+circle.getArea());
+        System.out.println("S Square: "+square.getArea());
+        System.out.println("After resizing: ");
+        rectangle.resize(30);
+        circle.resize(25);
+        square.resize(50);
+        System.out.println("S Rectangle: "+rectangle.getArea());
+        System.out.println("S Circle: "+circle.getArea());
+        System.out.println("S Square: "+square.getArea());
+    }
+}
+
 
 class Shape {
     private String color = "green";
@@ -27,27 +50,9 @@ class Shape {
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
-
-    @Override
-    public String toString() {
-        return "A Shape with color of "
-                + getColor()
-                + " and "
-                + (isFilled() ? "filled" : "not filled");
-    }
 }
 
-class ShapeTest {
-    public static void main(String[] args) {
-        Shape shape = new Shape();
-        System.out.println(shape);
-
-        shape = new Shape("red", false);
-        System.out.println(shape);
-    }
-}
-
-class Circle extends Shape {
+class Circle extends Shape implements Resizeable {
     private double radius = 1.0;
 
     public Circle() {
@@ -79,28 +84,12 @@ class Circle extends Shape {
     }
 
     @Override
-    public String toString() {
-        return "A Circle with radius="
-                + getRadius()
-                + ", which is a subclass of "
-                + super.toString();
+    public void resize(double percent) {
+        this.radius=this.radius*Math.sqrt((100+percent)/100.0);
     }
 }
 
-class CircleTest {
-    public static void main(String[] args) {
-        Circle circle = new Circle();
-        System.out.println(circle);
-
-        circle = new Circle(3.5);
-        System.out.println(circle);
-
-        circle = new Circle(3.5, "indigo", false);
-        System.out.println(circle);
-    }
-}
-
-class Rectangle extends Shape {
+class Rectangle extends Shape implements Resizeable {
     private double width = 1.0;
     private double length = 1.0;
 
@@ -143,30 +132,12 @@ class Rectangle extends Shape {
     }
 
     @Override
-    public String toString() {
-        return "A Rectangle with width="
-                + getWidth()
-                + " and length="
-                + getLength()
-                + ", which is a subclass of "
-                + super.toString();
+    public void resize(double percent) {
+        this.width*=(100+percent)/100;
     }
 }
 
-class RectangleTest {
-    public static void main(String[] args) {
-        Rectangle rectangle = new Rectangle();
-        System.out.println(rectangle);
-
-        rectangle = new Rectangle(2.3, 5.8);
-        System.out.println(rectangle);
-
-        rectangle = new Rectangle(2.5, 3.8, "orange", true);
-        System.out.println(rectangle);
-    }
-}
-
-class Square extends Rectangle {
+class Square extends Rectangle implements Colorable {
     public Square() {
     }
 
@@ -186,7 +157,6 @@ class Square extends Rectangle {
         super.setWidth(side);
         super.setLength(side);
     }
-
     @Override
     public void setWidth(double width) {
         setSide(width);
@@ -198,22 +168,12 @@ class Square extends Rectangle {
     }
 
     @Override
-    public String toString() {
-        return "A Square with side="
-                + getSide()
-                + ", which is a subclass of "
-                + super.toString();
+    public void resize(double percent) {
+        setSide(getSide()*(Math.sqrt((100+percent)/100)));
     }
-}
-public class HeCacDoiTuongHinhHoc {
-    public static void main(String[] args) {
-        Square square = new Square();
-        System.out.println(square);
 
-        square = new Square(2.3);
-        System.out.println(square);
-
-        square = new Square(5.8, "yellow", true);
-        System.out.println(square);
+    @Override
+    public void howToColor() {
+        System.out.println("Color all four sides.");
     }
 }
