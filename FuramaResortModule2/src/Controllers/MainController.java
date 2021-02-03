@@ -9,12 +9,12 @@ public class MainController {
     }
     public void displayMainMenu() {
         System.out.println("1. Add New Services\n" +
-                "2.Show Services\n" +
-                "3.Add New Customer\n" +
-                "4.Show Information of Customer\n" +
-                "5.Add New Booking\n" +
-                "6.Show Information of Employee\n" +
-                "7.Exit");
+                "2. Show Services\n" +
+                "3. Add New Customer\n" +
+                "4. Show Information of Customer\n" +
+                "5. Add New Booking\n" +
+                "6. Show Information of Employee\n" +
+                "7. Exit");
         System.out.print("Your choice: ");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
