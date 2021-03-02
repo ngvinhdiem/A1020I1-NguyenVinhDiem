@@ -209,7 +209,6 @@ public class LuyenTapSuDungCollectionFramework {
                         break;
                 }
                 scanner.nextLine();
-                scanner.nextLine();
                 displayMainMenu();
                 break;
         }
