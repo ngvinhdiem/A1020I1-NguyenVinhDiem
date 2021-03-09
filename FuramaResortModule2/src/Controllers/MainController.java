@@ -58,12 +58,14 @@ public class MainController {
                 break;
             case 2:
                 House house = new House();
+                house.addInformation();
                 House.WriteToFileHouse writeToFileHouse = new House.WriteToFileHouse();
                 writeToFileHouse.write(house.toCSV());
                 addNewServices();
                 break;
             case 3:
                 Room room = new Room();
+                room.addInformation();
                 Room.WriteToFileRoom writeToFileRoom = new Room.WriteToFileRoom();
                 writeToFileRoom.write(room.toCSV());
                 addNewServices();
@@ -84,31 +86,46 @@ public class MainController {
                 "3.Show all Room\n" +
                 "4.Show All Name Villa Not Duplicate\n" +
                 "5.Show All Name House Not Duplicate\n" +
-                "6.Show All Name Name Not Duplicate\n" +
+                "6.Show All Name Room Not Duplicate\n" +
                 "7.Back to menu\n" +
                 "8.Exit\n");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
         switch (input) {
             case 1:
-                Villa.ReadFileVilla readFileVilla = new Villa.ReadFileVilla();
-                readFileVilla.printVillaDetail();
-                String stop = scanner.nextLine();
-                stop = scanner.nextLine();
+                new Villa.ReadFileVilla().printVillaDetail();
+                scanner.nextLine();
+                scanner.nextLine();
                 showServices();
                 break;
             case 2:
-                House.ReadFileHouse readFileHouse = new House.ReadFileHouse();
-                readFileHouse.printHouseDetail();
-                stop = scanner.nextLine();
-                stop = scanner.nextLine();
+                new House.ReadFileHouse().printHouseDetail();
+                scanner.nextLine();
+                scanner.nextLine();
                 showServices();
                 break;
             case 3:
-                Room.ReadFileRoom readFileRoom = new Room.ReadFileRoom();
-                readFileRoom.printRoomDetail();
-                stop = scanner.nextLine();
-                stop = scanner.nextLine();
+                new Room.ReadFileRoom().printRoomDetail();
+                scanner.nextLine();
+                scanner.nextLine();
+                showServices();
+                break;
+            case 4:
+                new Villa.ReadFileVilla().printNameAllVillaNotDuplicate();
+                scanner.nextLine();
+                scanner.nextLine();
+                showServices();
+                break;
+            case 5:
+                new House.ReadFileHouse().printNameAllHouseNotDuplicate();
+                scanner.nextLine();
+                scanner.nextLine();
+                showServices();
+                break;
+                case 6:
+                new Room.ReadFileRoom().printNameAllRoomNotDuplicate();
+                scanner.nextLine();
+                scanner.nextLine();
                 showServices();
                 break;
             case 7:

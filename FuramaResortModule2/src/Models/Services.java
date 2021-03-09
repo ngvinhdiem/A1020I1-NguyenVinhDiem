@@ -1,4 +1,5 @@
 package Models;
+import java.util.Scanner;
 public abstract class Services {
     private String id,serviceName,rentType;
     private int usedArea,rentPrice,maxNumPeople;
