@@ -53,22 +53,16 @@ public class Villa extends Services {
                 + getMaxNumPeople() + "\n" + "Kiểu thuê (bao gồm thuê theo năm, tháng, ngày, giờ): " + getRentType() +
                 "\n" + "Tiêu chuẩn phòng: " + getRoomStandard() + "\n" + "Mô tả tiện nghi khác: " +
                 getComfortsDescription() + "\n" + "Diện tích hồ bơi: " + getPoolArea() + "\n" + "Số tầng: " +
-                getFloorNumber());
+                getFloorNumber()+"\n"+"Dịch vụ đi kèm:"+"Tên dịch vụ đi kèm: "+serviceExtra.getName()+"\n"+"Đơn vị: "+
+                serviceExtra.getUnit()+"\n"+"Giá tiền: "+serviceExtra.getPrice());
     }
 
-    public String toString() {
-        return "ID," + getId() + "," + "Tên dịch vụ," + getServiceName() + "," + "Diện tích sử dụng," +
-                getUsedArea() + "," + "Chi phí thuê," + getRentPrice() + "," + "Số lượng người tối đa,"
-                + getMaxNumPeople() + "," + "Kiểu thuê (bao gồm thuê theo năm tháng ngày giờ)," + getRentType() +
-                "," + "Tiêu chuẩn phòng," + getRoomStandard() + "," + "Mô tả tiện nghi khác," +
-                getComfortsDescription() + "," + "Diện tích hồ bơi," + getPoolArea() + "," + "Số tầng," +
-                getFloorNumber();
-    }
 
     public String toCSV() {
         return getId() + "," + getServiceName() + "," + getUsedArea() + "," + getRentPrice() + "," + getMaxNumPeople()
                 + "," + getRentType() + "," + getRoomStandard() + "," + getComfortsDescription() + ","
-                + getPoolArea() + "," + getFloorNumber() + "\n";
+                + getPoolArea() + "," + getFloorNumber() + ","+serviceExtra.getName()+","+serviceExtra.getUnit()+
+                ","+serviceExtra.getPrice()+"\n";
     }
 
     Scanner scanner = new Scanner(System.in);
@@ -81,44 +75,30 @@ public class Villa extends Services {
             id = scanner.nextLine();
         }
         setId(id);
-        System.out.println("Tên dịch vụ: ");
-        String serviceName = scanner.nextLine();
-        while (!serviceName.matches("^[A-Z][\\p{all}]{0,}$")) {
-            System.out.println("Error! Nhập lại tên dịch vụ: ");
-            serviceName = scanner.nextLine();
-        }
-        setServiceName(scanner.nextLine());
-        System.out.println("Diện tích sử dụng: ");
-        int usedArea = scanner.nextInt();
-        while (usedArea<=30) {
-            System.out.println("Error! Nhập lại diện tích sử dụng: ");
-            usedArea = scanner.nextInt();
-        }
-        setUsedArea(scanner.nextInt());
-        System.out.println("Chi phí thuê: ");
-        int rentPrice = scanner.nextInt();
-        while (rentPrice<=0) {
-            System.out.println("Error! Nhập lại chi phí thuê: ");
-            rentPrice = scanner.nextInt();
-        }
-        setRentPrice(scanner.nextInt());
-        System.out.println("Số lượng người tối đa: ");
-        int maxNumPeople = scanner.nextInt();
-        while (maxNumPeople<=0||maxNumPeople>=20) {
-            System.out.println("Error! Nhập lại số lượng người tối đa: ");
-            maxNumPeople = scanner.nextInt();
-        }
-        setMaxNumPeople(scanner.nextInt());
-        System.out.println("Kiểu thuê ̣(bao gồm thuê theo năm tháng ngày giờ):");
-        setRentType(scanner.nextLine());
+        super.addInformation();
         System.out.println("Tiêu chuẩn phòng: ");
-        setRoomStandard(scanner.nextLine());
+        String roomStandard = scanner.nextLine();
+        while (!roomStandard.matches("^[A-Z][\\p{all}]{0,}$")) {
+            System.out.println("Error! Nhập lại tiêu chuẩn phòng: ");
+            roomStandard = scanner.nextLine();
+        }
+        setRoomStandard(roomStandard);
         System.out.println("Mô tả tiện nghi khác: ");
         setComfortsDescription(scanner.nextLine());
         System.out.println("Diện tích hồ bơi: ");
-        setPoolArea(scanner.nextInt());
+        int poolArea = scanner.nextInt();
+        while (poolArea<=30) {
+            System.out.println("Error! Nhập lại diện tích hồ bơi: ");
+            poolArea = scanner.nextInt();
+        }
+        setPoolArea(poolArea);
         System.out.println("Số tầng: ");
-        setFloorNumber(scanner.nextInt());
+        int floorNumber = scanner.nextInt();
+        while (floorNumber<=0) {
+            System.out.println("Error! Nhập lại số tầng: ");
+            floorNumber = scanner.nextInt();
+        }
+        setFloorNumber(floorNumber);
     }
 
 

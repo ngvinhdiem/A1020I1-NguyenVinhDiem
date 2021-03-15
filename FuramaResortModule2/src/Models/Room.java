@@ -20,33 +20,27 @@ public class Room extends Services {
         System.out.println("ID: "+getId()+"\n"+"Tên dịch vụ: " + getServiceName() + "\n" + "Diện tích sử dụng: " +
                 getUsedArea() + "\n" + "Chi phí thuê: " + getRentPrice() + "\n" + "Số lượng người tối đa: "
                 + getMaxNumPeople() + "\n" + "Kiểu thuê (bao gồm thuê theo năm, tháng, ngày, giờ): " + getRentType() +
-                "\n" + "Dịch vụ miễn phí đi kèm: "+getFreeServiceIncluded());
+                "\n" + "Dịch vụ miễn phí đi kèm: "+getFreeServiceIncluded()+"\n"+"Dịch vụ đi kèm: "+
+                "Tên dịch vụ đi kèm: "+serviceExtra.getName()+ "\n"+"Đơn vị: "+ serviceExtra.getUnit()+"\n"
+                +"Giá tiền: "+serviceExtra.getPrice());
     }
-    public String toString() {
-        return "ID,"+getId()+","+"Tên dịch vụ," + getServiceName() + "," + "Diện tích sử dụng," +
-                getUsedArea() + "," + "Chi phí thuê," + getRentPrice() + "," + "Số lượng người tối đa,"
-                + getMaxNumPeople() + "," + "Kiểu thuê (bao gồm thuê theo năm tháng ngày giờ)," + getRentType() +
-                "," + "Dịch vụ miễn phí đi kèm,"+getFreeServiceIncluded();
-    }
+
     public String toCSV() {
         return getId()+","+getServiceName() + "," + getUsedArea() + "," + getRentPrice() + "," + getMaxNumPeople()
-                + ","  + getRentType() + ","  + getFreeServiceIncluded()+"\n";
+                + ","  + getRentType() + ","  + getFreeServiceIncluded()+ ","+serviceExtra.getName()+","
+                +serviceExtra.getUnit()+","+serviceExtra.getPrice()+"\n";
     }
 
     Scanner scanner = new Scanner(System.in);
     public void addInformation() {
         System.out.println("ID: ");
-        setId(scanner.nextLine());
-        System.out.println("Tên dịch vụ: ");
-        setServiceName(scanner.nextLine());
-        System.out.println("Diện tích sử dụng: ");
-        setUsedArea(scanner.nextInt());
-        System.out.println("Chi phí thuê: ");
-        setRentPrice(scanner.nextInt());
-        System.out.println("Số lượng người tối đa: ");
-        setMaxNumPeople(scanner.nextInt());
-        System.out.println("Kiểu thuê ̣(bao gồm thuê theo năm tháng ngày giờ):");
-        setRentType(scanner.nextLine());
+        String id = scanner.nextLine();
+        while (!id.matches("^SVRO-[0-9]{4}$")) {
+            System.out.println("Error! Nhập lại ID: ");
+            id = scanner.nextLine();
+        }
+        setId(id);
+        super.addInformation();
         System.out.println("Dịch vụ miễn phí đi kèm: ");
         setFreeServiceIncluded(scanner.nextLine());
     }
