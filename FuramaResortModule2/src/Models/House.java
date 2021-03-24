@@ -1,11 +1,10 @@
 package Models;
-
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class House extends Services {
+    static ArrayList<House> houseArrayList = new ArrayList<>();
     private String roomStandard,comfortsDescription;
     private int floorNumber;
 
@@ -78,101 +77,23 @@ public class House extends Services {
         setFloorNumber(floorNumber);
     }
 
-
-
-    public static class WriteToFileHouse {
-        private static final String FILENAME = "D:\\A1020I1-NguyenVinhDiem\\FuramaResortModule2" +
-                "\\src\\Data\\House.csv";
-        public void write(String a) {
-            try {
-                File file = new File(FILENAME);
-                FileWriter myWriter = new FileWriter(file.getAbsoluteFile(), true);
-                BufferedWriter bufferedWriter = new BufferedWriter(myWriter);
-                bufferedWriter.write(a);
-                bufferedWriter.close();
-                System.out.println("Successfully wrote to the file. \n");
-            } catch (IOException e) {
-                System.out.println("An error occurred. \n");
-                e.printStackTrace();
-            }
-        }
-    }
-    public static class ReadFileHouse {
-
-        private static final String COMMA_DELIMITER = ",";
-
-        public static void printNameAllHouseNotDuplicate() {
-            BufferedReader br = null;
-            try {
-                String line;
-                br = new BufferedReader(new FileReader("D:\\A1020I1-NguyenVinhDiem\\FuramaResortModule2" +
-                        "\\src\\Data\\House.csv"));
-                ArrayList<String> houseNameList = new ArrayList<>();
-                while ((line = br.readLine()) != null) {
-                    boolean check = true;
-                    for (String houseName : houseNameList) {
-                        if (parseCsvLine(line).get(1).equals(houseName)) {
-                            check = false;
-                            break;
-                        }
-                        ;
-                    }
-                    if (check == true) {
-                        System.out.println(parseCsvLine(line).get(1));
-                        houseNameList.add(parseCsvLine(line).get(1));
-                    }
-
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    if (br != null)
-                        br.close();
-                } catch (IOException crunchifyException) {
-                    crunchifyException.printStackTrace();
-                }
-            }
-        }
-
-        public static void printHouseDetail() {
-            BufferedReader br = null;
-            try {
-                String line;
-                br = new BufferedReader(new FileReader("D:\\A1020I1-NguyenVinhDiem\\FuramaResortModule2" +
-                        "\\src\\Data\\House.csv"));
-
-                while ((line = br.readLine()) != null) {
-                    printHouse(parseCsvLine(line));
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    if (br != null)
-                        br.close();
-                } catch (IOException crunchifyException) {
-                    crunchifyException.printStackTrace();
-                }
-            }
-        }
-        public static List<String> parseCsvLine(String csvLine) {
-            List<String> result = new ArrayList();
-            if (csvLine != null) {
-                String[] splitData = csvLine.split(COMMA_DELIMITER);
-                for (int i = 0; i < splitData.length; i++) {
-                    result.add(splitData[i]);
-                }
-            }
-            return result;
-        }
-        public static void printHouse(List<String> house) {
-            System.out.println("ID: "+house.get(0)+","+"Tên dịch vụ: " + house.get(1) + "," + "Diện tích sử dụng: " +
-                    house.get(2) + "," + "Chi phí thuê: " + house.get(3) + "," + "Số lượng người tối đa: "
-                    + house.get(4) + "," + "Kiểu thuê (bao gồm thuê theo năm, tháng, ngày, giờ): " + house.get(5) +
-                    "," + "Tiêu chuẩn phòng: " + house.get(6) + "," + "Mô tả tiện nghi khác: " +
-                    house.get(7) + "," + "Số tầng: " +
-                    house.get(8));
-        }
+    public void print(List<String> house) {
+        House house1 = new House();
+        house1.setId(house.get(0));
+        house1.setServiceName(house.get(1));
+        house1.setUsedArea(Integer.parseInt(house.get(2)));
+        house1.setRentPrice(Integer.parseInt(house.get(3)));
+        house1.setMaxNumPeople(Integer.parseInt(house.get(4)));
+        house1.setRentType(house.get(5));
+        house1.setRoomStandard(house.get(6));
+        house1.setComfortsDescription(house.get(7));
+        house1.setFloorNumber(Integer.parseInt(house.get(8)));
+        houseArrayList.add(house1);
+        System.out.println("ID: "+house.get(0)+","+"Tên dịch vụ: " + house.get(1) + "," + "Diện tích sử dụng: " +
+                house.get(2) + "," + "Chi phí thuê: " + house.get(3) + "," + "Số lượng người tối đa: "
+                + house.get(4) + "," + "Kiểu thuê (bao gồm thuê theo năm, tháng, ngày, giờ): " + house.get(5) +
+                "," + "Tiêu chuẩn phòng: " + house.get(6) + "," + "Mô tả tiện nghi khác: " +
+                house.get(7) + "," + "Số tầng: " +
+                house.get(8));
     }
 }

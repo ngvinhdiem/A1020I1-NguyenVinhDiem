@@ -1,15 +1,7 @@
 package Controllers;
 
-import Models.House;
-import Models.Room;
-import Models.Villa;
+import Models.*;
 
-import java.io.FileWriter;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.IOException;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -37,6 +29,35 @@ public class MainController {
             case 2:
                 showServices();
                 break;
+            case 3:
+                Customer customer = new Customer();
+                customer.addNewCustomer();
+                scanner.nextLine();
+                scanner.nextLine();
+                displayMainMenu();
+                break;
+            case 4:
+                Customer customer1 = new Customer();
+                customer1.showInformationCustomers();
+                scanner.nextLine();
+                scanner.nextLine();
+                displayMainMenu();
+                break;
+            case 5:
+                Customer customer2 = new Customer();
+                customer2.addNewBooking();
+                scanner.nextLine();
+                scanner.nextLine();
+                displayMainMenu();
+                break;
+            case 6:
+                Employee employee = new Employee();
+                employee.printAllEmployee("D:\\\\A1020I1-NguyenVinhDiem" +
+                        "\\\\FuramaResortModule2\\\\src\\\\Data\\\\Employee.csv");
+                break;
+
+
+
         }
     }
 
@@ -52,21 +73,24 @@ public class MainController {
             case 1:
                 Villa villa = new Villa();
                 villa.addInformation();
-                Villa.WriteToFileVilla writeToFileVilla = new Villa.WriteToFileVilla();
+                Services.WriteToFile writeToFileVilla = new Services.WriteToFile("D:\\\\A1020I1-NguyenVinhDiem" +
+                        "\\\\FuramaResortModule2\\\\src\\\\Data\\\\Villa.csv");
                 writeToFileVilla.write(villa.toCSV());
                 addNewServices();
                 break;
             case 2:
                 House house = new House();
                 house.addInformation();
-                House.WriteToFileHouse writeToFileHouse = new House.WriteToFileHouse();
+                Services.WriteToFile writeToFileHouse = new Services.WriteToFile("D:\\\\A1020I1-NguyenVinhDiem" +
+                        "\\\\FuramaResortModule2\\\\src\\\\Data\\\\House.csv");
                 writeToFileHouse.write(house.toCSV());
                 addNewServices();
                 break;
             case 3:
                 Room room = new Room();
                 room.addInformation();
-                Room.WriteToFileRoom writeToFileRoom = new Room.WriteToFileRoom();
+                Services.WriteToFile writeToFileRoom = new Services.WriteToFile("D:\\\\A1020I1-NguyenVinhDiem" +
+                        "\\\\FuramaResortModule2\\\\src\\\\Data\\\\Room.csv");
                 writeToFileRoom.write(room.toCSV());
                 addNewServices();
                 break;
@@ -93,37 +117,43 @@ public class MainController {
         int input = scanner.nextInt();
         switch (input) {
             case 1:
-                new Villa.ReadFileVilla().printVillaDetail();
+                new Villa().printDetail("D:\\\\A1020I1-NguyenVinhDiem" +
+                        "\\\\FuramaResortModule2\\\\src\\\\Data\\\\Villa.csv");
                 scanner.nextLine();
                 scanner.nextLine();
                 showServices();
                 break;
             case 2:
-                new House.ReadFileHouse().printHouseDetail();
+                new House().printDetail("D:\\\\A1020I1-NguyenVinhDiem" +
+                        "\\\\FuramaResortModule2\\\\src\\\\Data\\\\House.csv");
                 scanner.nextLine();
                 scanner.nextLine();
                 showServices();
                 break;
             case 3:
-                new Room.ReadFileRoom().printRoomDetail();
+                new Room().printDetail("D:\\\\A1020I1-NguyenVinhDiem" +
+                        "\\\\FuramaResortModule2\\\\src\\\\Data\\\\Room.csv");
                 scanner.nextLine();
                 scanner.nextLine();
                 showServices();
                 break;
             case 4:
-                new Villa.ReadFileVilla().printNameAllVillaNotDuplicate();
+                new Villa().printAllNameNotDuplicate("D:\\\\A1020I1-NguyenVinhDiem" +
+                        "\\\\FuramaResortModule2\\\\src\\\\Data\\\\Villa.csv");
                 scanner.nextLine();
                 scanner.nextLine();
                 showServices();
                 break;
             case 5:
-                new House.ReadFileHouse().printNameAllHouseNotDuplicate();
+                new House().printAllNameNotDuplicate("D:\\\\A1020I1-NguyenVinhDiem" +
+                        "\\\\FuramaResortModule2\\\\src\\\\Data\\\\House.csv");
                 scanner.nextLine();
                 scanner.nextLine();
                 showServices();
                 break;
-                case 6:
-                new Room.ReadFileRoom().printNameAllRoomNotDuplicate();
+            case 6:
+                new Room().printAllNameNotDuplicate("D:\\\\A1020I1-NguyenVinhDiem" +
+                        "\\\\FuramaResortModule2\\\\src\\\\Data\\\\Room.csv");
                 scanner.nextLine();
                 scanner.nextLine();
                 showServices();
