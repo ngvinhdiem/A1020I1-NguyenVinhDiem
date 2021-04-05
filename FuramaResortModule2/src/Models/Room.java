@@ -35,7 +35,7 @@ public class Room extends Services {
         System.out.println("ID: ");
         String id = scanner.nextLine();
         while (!id.matches("^SVRO-[0-9]{4}$")) {
-            System.out.println("Error! Nhập lại ID: ");
+            System.out.println("Lỗi! Nhập lại ID: ");
             id = scanner.nextLine();
         }
         setId(id);

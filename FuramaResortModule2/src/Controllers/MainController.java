@@ -18,7 +18,9 @@ public class MainController {
                 "4. Show Information of Customer\n" +
                 "5. Add New Booking\n" +
                 "6. Show Information of Employee\n" +
-                "7. Exit");
+                "7. Show Information of Customer Buying Cinema 4D Ticket\n" +
+                "8. Search Profile of Employee\n" +
+                "9. Exit");
         System.out.print("Your choice: ");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
@@ -52,10 +54,31 @@ public class MainController {
                 break;
             case 6:
                 Employee employee = new Employee();
-                employee.printAllEmployee("D:\\\\A1020I1-NguyenVinhDiem" +
-                        "\\\\FuramaResortModule2\\\\src\\\\Data\\\\Employee.csv");
+                employee.printAllEmployee();
+                scanner.nextLine();
+                scanner.nextLine();
+                displayMainMenu();
+                break;
+            case 7:
+                Cinema cinema = new Cinema();
+                cinema.printCinemaCustomer();
+                scanner.nextLine();
+                scanner.nextLine();
+                displayMainMenu();
+                break;
+            case 8:
+                FileCabinet fileCabinet = new FileCabinet();
+                System.out.println("FILE CABINET: input ID to search:");
+                scanner.nextLine();
+                String id = scanner.nextLine();
+                fileCabinet.search(id);
+                scanner.nextLine();
+                displayMainMenu();
                 break;
 
+            case 9:
+                System.exit(0);
+                break;
 
 
         }

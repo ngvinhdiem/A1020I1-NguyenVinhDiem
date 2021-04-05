@@ -178,7 +178,6 @@ public abstract class Services {
                         check = false;
                         break;
                     }
-                    ;
                 }
                 if (check == true) {
 //                    System.out.println(parseCsvLine(line).get(1));
@@ -186,7 +185,7 @@ public abstract class Services {
                 }
 
             }
-            System.out.println("Danh sách tên các villa không trùng nhau:");
+            System.out.println("All Name Not Duplicated:");
             for ( String name : nameList) {
                 System.out.println(name);
             }

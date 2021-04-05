@@ -56,11 +56,8 @@ public class Employee {
                 '}';
     }
 
-    public void printAllEmployee(String path) {
-        readFile(path);
-//        System.out.println(employeeMap.toString());
-
-
+    public void printAllEmployee() {
+        readFile();
         for (String key : employeeMap.keySet()) {
             String value = employeeMap.get(key).toString();
             System.out.println(key + " " + value);
@@ -68,10 +65,12 @@ public class Employee {
         employeeMap.clear();
     }
 
-    static Map<String ,Employee> employeeMap = new LinkedHashMap<>();
+    static Map<String, Employee> employeeMap = new LinkedHashMap<>();
 
 
-    public void readFile(String path) {
+    public void readFile() {
+        String path = "D:\\\\A1020I1-NguyenVinhDiem" +
+                "\\\\FuramaResortModule2\\\\src\\\\Data\\\\Employee.csv";
         BufferedReader br = null;
         try {
             String line;
@@ -98,13 +97,18 @@ public class Employee {
         employee1.setName(employee.get(1));
         employee1.setAge(Integer.parseInt(employee.get(2)));
         employee1.setAddress(employee.get(3));
-        employeeMap.put(employee.get(0),employee1);
-//        System.out.println(employee1.toString());
-//        System.out.println("Họ và tên: " + customer.get(0) + "," + "Ngày sinh: " + customer.get(1) + "," + "Giới tính: " +
-//                customer.get(2) + "," + "Số CMND: " + customer.get(3) + "," + "SĐT: "
-//                + customer.get(4) + "," + "Email: " + customer.get(5) +
-//                "," + "Loại khách: " + customer.get(6) + "," + "Địa chỉ: " +
-//                customer.get(7));
+        employeeMap.put(employee.get(0), employee1);
     }
 
+
+    public void search(String id) {
+        readFile();
+        for (String key : employeeMap.keySet()) {
+            if (key.equals(id)) {
+                String value = employeeMap.get(key).toString();
+                System.out.println(key + " " + value);
+            }
+        }
+        employeeMap.clear();
+    }
 }

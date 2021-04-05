@@ -428,12 +428,12 @@ public class Customer implements Comparable<Customer> {
                 Villa villa = new Villa();
                 villa.printDetail("D:\\\\A1020I1-NguyenVinhDiem" +
                         "\\\\FuramaResortModule2\\\\src\\\\Data\\\\Villa.csv");
-                boolean check=false;
+                boolean check = false;
                 Villa subVilla = new Villa();
-                int count =0;
+                int count = 0;
                 while (!check) {
                     System.out.println("Nhập ID villa bạn muốn chọn: ");
-                    if (count==0) scanner.nextLine();
+                    if (count == 0) scanner.nextLine();
                     String idVilla = scanner.nextLine();
                     for (Villa villa1 : villa.villaArrayList) {
                         if (villa1.getId().equals(idVilla)) {
@@ -454,12 +454,12 @@ public class Customer implements Comparable<Customer> {
                 House house = new House();
                 house.printDetail("D:\\\\A1020I1-NguyenVinhDiem" +
                         "\\\\FuramaResortModule2\\\\src\\\\Data\\\\House.csv");
-                check=false;
+                check = false;
                 House subHouse = new House();
-                count =0;
+                count = 0;
                 while (!check) {
                     System.out.println("Nhập ID house bạn muốn chọn: ");
-                    if (count==0) scanner.nextLine();
+                    if (count == 0) scanner.nextLine();
                     String idHouse = scanner.nextLine();
                     for (House house1 : house.houseArrayList) {
                         if (house1.getId().equals(idHouse)) {
@@ -480,12 +480,12 @@ public class Customer implements Comparable<Customer> {
                 Room room = new Room();
                 room.printDetail("D:\\\\A1020I1-NguyenVinhDiem" +
                         "\\\\FuramaResortModule2\\\\src\\\\Data\\\\Room.csv");
-                check=false;
+                check = false;
                 Room subRoom = new Room();
-                count =0;
+                count = 0;
                 while (!check) {
                     System.out.println("Nhập ID room bạn muốn chọn: ");
-                    if (count==0) scanner.nextLine();
+                    if (count == 0) scanner.nextLine();
                     String idRoom = scanner.nextLine();
                     for (Room room1 : room.roomArrayList) {
                         if (room1.getId().equals(idRoom)) {
