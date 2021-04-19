@@ -12,7 +12,9 @@ customerNumber int not null,
 `state` varchar(50) not null,
 `postalCode` varchar(15) not null,
 `country` varchar(50) not null,
-creditLimit double
+creditLimit double,
+salesRepEmployeeNumber int not null,
+FOREIGN KEY (salesRepEmployeeNumber) references employees(employeeNumber)
 );
 
 create table orders (
@@ -23,7 +25,9 @@ shippedDate date not null,
 `status` varchar(15) not null,
 comments text not null,
 quantityOrdered int not null,
-priceEach double not null
+priceEach double not null,
+customerNumber int not null,
+ FOREIGN KEY (customerNumber) references customers(customerNumber)
 );
 
 create table payments (
@@ -43,5 +47,36 @@ create table products (
     quantityInStock int not null,
     buyPrice double not null,
     MSRP double not null
-    
 );
+
+create table productlines (
+`productLine` varchar(50) not null,
+textDescription text,
+image text
+);
+
+create table offices (
+`officeCode` varchar(10) not null,
+`city` varchar(50) not null,
+`phone` varchar(50) not null,
+`addressLine1` varchar(50) not null,
+`addressLine2` varchar(50) ,
+`state` varchar(50) ,
+`country` varchar(50) ,
+`postalCode` varchar(15) 
+);
+
+create table employees (
+employeeNumber int not null,
+`lastName` varchar(50) not null,
+`firstName` varchar(50) not null,
+`email` varchar(100) not null,
+`jobTitle` varchar(50) not null,
+`officeCode` varchar(10) not null,
+ FOREIGN KEY (`officeCode`) references offices(`officeCode`),
+ FOREIGN KEY (reportTo) references employees(reportTo)
+ 
+);
+
+
+
