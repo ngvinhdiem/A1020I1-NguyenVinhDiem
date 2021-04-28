@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86eef7b5-e6a7-4e6b-87c0-a306a3518858" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/module_3/b2_thiet_ke_va_tao_csdl/bai_tap/PhanTichVaThietKeCSDL.sql" beforeDir="false" afterPath="$PROJECT_DIR$/module_3/b2_thiet_ke_va_tao_csdl/bai_tap/PhanTichVaThietKeCSDL.sql" afterDir="false" />
-    </list>
+    <list default="true" id="86eef7b5-e6a7-4e6b-87c0-a306a3518858" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +21,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="E:/portfolio/profile-bootstrap-master/index.html" />
+    <property name="last_opened_file_path" value="D:/demoAnhTien" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -38,6 +36,7 @@
       <workItem from="1610112718598" duration="84000" />
       <workItem from="1610977170867" duration="145000" />
       <workItem from="1618824083474" duration="41000" />
+      <workItem from="1618835129408" duration="49000" />
     </task>
     <servers />
   </component>
@@ -45,9 +44,9 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="153" key="FileChooserDialogImpl" timestamp="1618824117828">
+    <state x="549" y="153" key="FileChooserDialogImpl" timestamp="1618835176643">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1618824117828" />
+    <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1618835176643" />
   </component>
 </project>
