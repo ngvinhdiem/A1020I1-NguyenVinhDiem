@@ -29,6 +29,7 @@ add column `email` varchar(50);
 insert into student (`name`,date_of_birth,`email`)
 values ('F','1997-05-04','ldskj@sdfkld.com'),('G','2000-12-11','jsfld@sdklfj.com');
 
-select * from student;
-drop table student;
+select id,name,date_of_birth from student;
+
+
 
