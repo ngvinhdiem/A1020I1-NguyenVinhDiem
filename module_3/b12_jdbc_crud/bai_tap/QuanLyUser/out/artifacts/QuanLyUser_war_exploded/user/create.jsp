@@ -44,5 +44,8 @@
         </table>
     </form>
 </div>
+<h3>
+    <a href="/">Back to menu</a>
+</h3>
 </body>
 </html>

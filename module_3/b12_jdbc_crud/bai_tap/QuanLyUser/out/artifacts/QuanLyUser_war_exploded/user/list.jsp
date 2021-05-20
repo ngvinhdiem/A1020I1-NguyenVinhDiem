@@ -36,5 +36,11 @@
         </c:forEach>
     </table>
 </div>
+
+<h3>
+    <a href="users?action=sort">Sorting by name</a>
+    <br>
+    <a href="/">Back to menu</a>
+</h3>
 </body>
 </html>
