@@ -7915,3 +7915,4 @@ insert  into `products`(`productCode`,`productName`,`productLine`,`productScale`
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET NAMES utf8mb4 */;
+

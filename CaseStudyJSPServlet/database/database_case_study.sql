@@ -1,6 +1,6 @@
-drop database if exists case_study;
-create database case_study;
-use case_study;
+drop database if exists db_cs;
+create database db_cs;
+use db_cs;
 
 create table ViTri (
 IDViTri int primary key,
