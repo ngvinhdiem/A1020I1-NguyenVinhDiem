@@ -19,7 +19,7 @@
 </header>
 
 <div class = "row">
-    <aside class="col-sm-3">
+    <aside class="col-sm-2">
         <div class="poly-cart">
             <div class="card-header">
                 <span class="glyphicon glyphicon-th-list"></span>
@@ -31,7 +31,7 @@
             </div>
         </div>
     </aside>
-    <article class="col-sm-9">
+    <article class="col-sm-10">
 
         <div align="center">
             <br><h3>List of Customers</h3><br>

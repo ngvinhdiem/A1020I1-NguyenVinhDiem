@@ -19,7 +19,7 @@
 </header>
 
 <div class = "row">
-    <aside class="col-sm-3">
+    <aside class="col-sm-2">
         <div class="poly-cart">
             <div class="card-header">
                 <span class="glyphicon glyphicon-th-list"></span>
@@ -31,10 +31,10 @@
             </div>
         </div>
     </aside>
-    <article class="col-sm-9">
+    <article class="col-sm-10">
 
         <div align="center">
-            <br><h3>List of services</h3><br>
+            <br><h3>List of services</h3>
             <form method="post" >
                 <label>
                     <input type="text" name="search" placeholder="Search By Name">
@@ -77,10 +77,12 @@
                             <a href="furama?action=edit-service&id=${service.serviceId}">Edit | </a>
                             <a href="furama?action=delete-service&id=${service.serviceId}">Delete</a>
                         </td>
+
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
+
         </div>
     </article>
 
@@ -91,6 +93,32 @@
 <footer>
     <%@include file="../body/footer.jsp" %>
 </footer>
+
+
+<%--<div id="id01" class="modal">--%>
+<%--    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>--%>
+<%--    <div class="container">--%>
+<%--        <br><br><br><br><br><br><br><br>--%>
+<%--        <h1>Are you sure you want to delete?</h1>--%>
+
+<%--        <div class="clearfix">--%>
+<%--            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>--%>
+<%--            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+<%--<script>--%>
+<%--    // Get the modal--%>
+<%--    var modal = document.getElementById('id01');--%>
+
+<%--    // When the user clicks anywhere outside of the modal, close it--%>
+<%--    window.onclick = function(event) {--%>
+<%--        if (event.target == modal) {--%>
+<%--            modal.style.display = "none";--%>
+<%--        }--%>
+<%--    }--%>
+<%--</script>--%>
+
 
 
 <script src="../jquery/jquery-3.5.1.min.js"></script>

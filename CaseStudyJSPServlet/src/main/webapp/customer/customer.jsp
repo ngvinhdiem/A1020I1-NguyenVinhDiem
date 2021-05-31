@@ -17,7 +17,7 @@
 </header>
 
 <div class = "row">
-    <aside class="col-sm-3">
+    <aside class="col-sm-2">
         <div class="poly-cart">
             <div class="card-header">
                 <span class="glyphicon glyphicon-th-list"></span>

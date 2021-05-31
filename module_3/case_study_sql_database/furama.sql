@@ -411,7 +411,7 @@ set kh.id_loai_khach = (
 where kh.id_loai_khach = (
 	select lk.id_loai_khach
     from loai_khach lk
-    where lk.ten_loai_khach = 'Platinium'
+    where lk.ten_loai_khach = 'Platinum'
 ) and temp.id = kh.id_khach_hang;
 
 select * from khach_hang;
