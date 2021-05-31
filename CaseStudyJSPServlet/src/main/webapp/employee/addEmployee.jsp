@@ -37,7 +37,7 @@
         <div align="center">
             <form method="post">
                 <table border="1" cellpadding="5">
-                    <br>  <h3>Add New Employee</h3> 
+                    <br>  <h3>Add New Employee</h3>
                     <tr>
                         <th>Name:</th>
                         <td>

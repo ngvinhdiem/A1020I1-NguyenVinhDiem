@@ -65,13 +65,13 @@ public class FuramaServlet extends HttpServlet {
                     throwables.printStackTrace();
                 }
                 break;
-//            case "add-contract":
-//                try {
-//                    addNewContract(request, response);
-//                } catch (SQLException throwables) {
-//                    throwables.printStackTrace();
-//                }
-//                break;
+            case "add-contract":
+                try {
+                    addNewContract(request, response);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+                break;
             case "list-services":
                 try {
                     searchService(request, response);
@@ -114,13 +114,13 @@ public class FuramaServlet extends HttpServlet {
                     throwables.printStackTrace();
                 }
                 break;
-//            case "edit-contract":
-//                try {
-//                    updateContract(request, response);
-//                } catch (SQLException throwables) {
-//                    throwables.printStackTrace();
-//                }
-//                break;
+            case "edit-contract":
+                try {
+                    updateContract(request, response);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+                break;
         }
     }
 
@@ -178,9 +178,9 @@ public class FuramaServlet extends HttpServlet {
             case "edit-employee":
                 showEditEmployeeForm(request, response);
                 break;
-//            case "edit-contract":
-//                showEditContractForm(request, response);
-//                break;
+            case "edit-contract":
+                showEditContractForm(request, response);
+                break;
             case "delete-service":
                 try {
                     deleteService(request, response);
@@ -202,13 +202,13 @@ public class FuramaServlet extends HttpServlet {
                     throwables.printStackTrace();
                 }
                 break;
-//            case "delete-contract":
-//                try {
-//                    deleteContract(request, response);
-//                } catch (SQLException throwables) {
-//                    throwables.printStackTrace();
-//                }
-//                break;
+            case "delete-contract":
+                try {
+                    deleteContract(request, response);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+                break;
 
         }
     }
@@ -302,6 +302,20 @@ public class FuramaServlet extends HttpServlet {
         listAllEmployees(request, response);
     }
 
+    private void addNewContract(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        int id = (int) (Math.random() * 1000);
+        String startDate = request.getParameter("startDate");
+        String endDate = request.getParameter("endDate");
+        double deposit = Double.parseDouble(request.getParameter("deposit"));
+        double totalMoney = Double.parseDouble(request.getParameter("totalMoney"));
+        int employeeId = Integer.parseInt(request.getParameter("employeeId"));
+        int customerId = Integer.parseInt(request.getParameter("customerId"));
+        int serviceId = Integer.parseInt(request.getParameter("serviceId"));
+        Contract contract = new Contract(id,startDate,endDate,deposit,totalMoney,employeeId,customerId,serviceId);
+        contractService.insertContractStore(contract);
+        listAllContracts(request, response);
+    }
+
     private void searchCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         String name = request.getParameter("search");
         customerService.selectByName(name);
@@ -343,6 +357,20 @@ public class FuramaServlet extends HttpServlet {
         request.setAttribute("employeeList", employeeListSearch);
         request.getRequestDispatcher("employee/listEmployee.jsp").forward(request, response);
     }
+
+    private void showEditContractForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Contract contract = contractService.getContractById(id);
+        List<Service> serviceList = serviceService.selectAllService();
+        List<Employee> employeeList = employeeService.selectAllEmployee();
+        List<Customer> customerList = customerService.selectAllCustomer();
+        request.setAttribute("serviceList", serviceList);
+        request.setAttribute("customerList", customerList);
+        request.setAttribute("employeeList", employeeList);
+        request.setAttribute("contract",contract);
+        request.getRequestDispatcher("contract/editContractForm.jsp").forward(request, response);
+    }
+
 
     private void showEditCustomerForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -524,6 +552,20 @@ public class FuramaServlet extends HttpServlet {
         request.getRequestDispatcher("employee/editEmployeeForm.jsp").forward(request, response);
     }
 
+    private void updateContract(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String startDate = request.getParameter("startDate");
+        String endDate = request.getParameter("endDate");
+        double deposit = Double.parseDouble(request.getParameter("deposit"));
+        double totalMoney = Double.parseDouble(request.getParameter("totalMoney"));
+        int employeeId = Integer.parseInt(request.getParameter("employeeId"));
+        int customerId = Integer.parseInt(request.getParameter("customerId"));
+        int serviceId = Integer.parseInt(request.getParameter("serviceId"));
+        Contract contract = new Contract(id,startDate,endDate,deposit,totalMoney,employeeId,customerId,serviceId);
+        contractService.updateContract(contract);
+        listAllContracts(request, response);
+    }
+
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
         int typeId = Integer.parseInt(request.getParameter("type"));
@@ -597,5 +639,10 @@ public class FuramaServlet extends HttpServlet {
         listAllEmployees(request, response);
     }
 
+    private void deleteContract(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        contractService.deleteContract(id);
+        listAllContracts(request, response);
+    }
 
 }

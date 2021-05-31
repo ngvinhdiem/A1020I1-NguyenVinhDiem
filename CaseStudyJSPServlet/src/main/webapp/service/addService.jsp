@@ -24,7 +24,7 @@
         <div class="poly-cart">
             <div class="card-header">
                 <span class="glyphicon glyphicon-th-list"></span>
-                <strong>Customer</strong>
+                <strong>Service</strong>
             </div>
             <div class="list-group">
                 <a href="furama?action=add-service" class="list-group-item">Add New Service</a>

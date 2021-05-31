@@ -392,7 +392,7 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE PROCEDURE update_contract(
-		IN contract_id int,
+	IN contract_id int,
     IN contract_start_date date,
     IN contract_end_date date,
     IN contract_deposit double,

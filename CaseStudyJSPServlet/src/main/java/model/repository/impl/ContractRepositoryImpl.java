@@ -64,7 +64,7 @@ public class ContractRepositoryImpl implements ContractRepository {
         boolean rowUpdated = false;
         try {
 
-            CallableStatement callableStatement = this.baseRepository.getConnection().prepareCall("call update_contract(?,?,?,?,?,?,?,?,?)");
+            CallableStatement callableStatement = this.baseRepository.getConnection().prepareCall("call update_contract(?,?,?,?,?,?,?,?)");
             callableStatement.setInt(1, contract.getContractId());
             callableStatement.setDate(2, Date.valueOf(contract.getContractStartDate()));
             callableStatement.setDate(3, Date.valueOf(contract.getContractEndDate()));
@@ -112,7 +112,7 @@ public class ContractRepositoryImpl implements ContractRepository {
 
     @Override
     public void insertContractStore(Contract contract) throws SQLException {
-        CallableStatement callableStatement = this.baseRepository.getConnection().prepareCall("call insert_contract(?,?,?,?,?,?,?,?,?)");
+        CallableStatement callableStatement = this.baseRepository.getConnection().prepareCall("call insert_contract(?,?,?,?,?,?,?,?)");
         callableStatement.setInt(1, contract.getContractId());
         callableStatement.setDate(2, Date.valueOf(contract.getContractStartDate()));
         callableStatement.setDate(3, Date.valueOf(contract.getContractEndDate()));
