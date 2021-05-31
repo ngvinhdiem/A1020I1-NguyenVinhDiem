@@ -259,9 +259,9 @@ DELIMITER ;
 -- select * from service;
 create table contract(
 	contract_id int primary key not null,
-    contract_start_date datetime not null,
-    contract_end_date datetime not null,
-    contract_daposit double not null,
+    contract_start_date date not null,
+    contract_end_date date not null,
+    contract_deposit double not null,
     contract_total_money double not null,
     employee_id int not null,
     customer_id int not null,
@@ -271,6 +271,8 @@ create table contract(
     foreign key (customer_id) references customer(customer_id),
     foreign key (service_id) references service(service_id)
 );
+
+
 
 create table attach_service(
 	attach_service_id int primary key not null,
@@ -358,4 +360,61 @@ SELECT * FROM customer where customer.customer_id=customer_id;
 END$$
 DELIMITER ;
 
+insert into contract
+values 
+(1,'2011-01-01','2021-01-01',100,1000,1,1,1),
+(2,'2012-02-02','2022-02-02',200,2000,2,2,2),
+(3,'2013-03-03','2023-03-03',300,3000,3,3,3)
+;
+select * from contract;
+DELIMITER $$
+CREATE PROCEDURE insert_contract(
+		IN contract_id int,
+    IN contract_start_date date,
+    IN contract_end_date date,
+    IN contract_deposit double,
+    IN contract_total_money double,
+    IN employee_id int,
+    IN customer_id int,
+    IN service_id int
+)
+BEGIN
+    INSERT INTO contract VALUES(contract_id,
+     contract_start_date,
+     contract_end_date ,
+     contract_deposit ,
+     contract_total_money ,
+     employee_id ,
+     customer_id ,
+     service_id );
+END$$
+DELIMITER ;
 
+DELIMITER $$
+CREATE PROCEDURE update_contract(
+		IN contract_id int,
+    IN contract_start_date date,
+    IN contract_end_date date,
+    IN contract_deposit double,
+    IN contract_total_money double,
+    IN employee_id int,
+    IN customer_id int,
+    IN service_id int
+)
+BEGIN
+update contract set contract.contract_id=contract_id, contract.contract_start_date=contract.contract_start_date,
+contract.contract_end_date=contract_end_date,contract.contract_deposit=contract_deposit,
+contract.contract_total_money=contract_total_money,contract.employee_id=employee_id,contract.customer_id=customer_id,
+contract.service_id=service_id
+where contract.contract_id = contract_id;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE `get_contract_by_id`(
+	IN contract_id int
+)
+BEGIN
+SELECT * FROM contract where contract.contract_id=contract_id;
+END$$
+DELIMITER ;

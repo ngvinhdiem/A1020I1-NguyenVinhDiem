@@ -1,10 +1,13 @@
 package controller;
 
+import model.bean.Contract;
 import model.bean.Customer;
 import model.bean.Employee;
 import model.bean.Service;
+import model.service.ContractService;
 import model.service.CustomerService;
 import model.service.EmployeeService;
+import model.service.impl.ContractServiceImpl;
 import model.service.impl.CustomerServiceImpl;
 import model.service.ServiceService;
 import model.service.impl.EmployeeServiceImpl;
@@ -26,11 +29,13 @@ public class FuramaServlet extends HttpServlet {
     private CustomerService customerService;
     private ServiceService serviceService;
     private EmployeeService employeeService;
+    private ContractService contractService;
 
     public void init() {
         customerService = new CustomerServiceImpl();
         serviceService = new ServiceServiceImpl();
         employeeService = new EmployeeServiceImpl();
+        contractService = new ContractServiceImpl();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,6 +65,13 @@ public class FuramaServlet extends HttpServlet {
                     throwables.printStackTrace();
                 }
                 break;
+//            case "add-contract":
+//                try {
+//                    addNewContract(request, response);
+//                } catch (SQLException throwables) {
+//                    throwables.printStackTrace();
+//                }
+//                break;
             case "list-services":
                 try {
                     searchService(request, response);
@@ -102,6 +114,13 @@ public class FuramaServlet extends HttpServlet {
                     throwables.printStackTrace();
                 }
                 break;
+//            case "edit-contract":
+//                try {
+//                    updateContract(request, response);
+//                } catch (SQLException throwables) {
+//                    throwables.printStackTrace();
+//                }
+//                break;
         }
     }
 
@@ -135,6 +154,9 @@ public class FuramaServlet extends HttpServlet {
             case "add-employee":
                 request.getRequestDispatcher("employee/addEmployee.jsp").forward(request, response);
                 break;
+            case "add-contract":
+                addContractForm(request,response);
+                break;
             case "list-services":
                 listAllServices(request, response);
                 break;
@@ -143,6 +165,9 @@ public class FuramaServlet extends HttpServlet {
                 break;
             case "list-employees":
                 listAllEmployees(request, response);
+                break;
+            case "list-contracts":
+                listAllContracts(request, response);
                 break;
             case "edit-customer":
                 showEditCustomerForm(request, response);
@@ -153,6 +178,9 @@ public class FuramaServlet extends HttpServlet {
             case "edit-employee":
                 showEditEmployeeForm(request, response);
                 break;
+//            case "edit-contract":
+//                showEditContractForm(request, response);
+//                break;
             case "delete-service":
                 try {
                     deleteService(request, response);
@@ -174,8 +202,25 @@ public class FuramaServlet extends HttpServlet {
                     throwables.printStackTrace();
                 }
                 break;
+//            case "delete-contract":
+//                try {
+//                    deleteContract(request, response);
+//                } catch (SQLException throwables) {
+//                    throwables.printStackTrace();
+//                }
+//                break;
 
         }
+    }
+
+    private void addContractForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Service> serviceList = serviceService.selectAllService();
+        List<Employee> employeeList = employeeService.selectAllEmployee();
+        List<Customer> customerList = customerService.selectAllCustomer();
+        request.setAttribute("serviceList", serviceList);
+        request.setAttribute("customerList", customerList);
+        request.setAttribute("employeeList", employeeList);
+        request.getRequestDispatcher("contract/addContract.jsp").forward(request, response);
     }
 
 
@@ -195,6 +240,12 @@ public class FuramaServlet extends HttpServlet {
         List<Employee> employeeList = employeeService.selectAllEmployee();
         request.setAttribute("employeeList", employeeList);
         request.getRequestDispatcher("employee/listEmployee.jsp").forward(request, response);
+    }
+
+    private void listAllContracts(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Contract> contractList = contractService.selectAllContract();
+        request.setAttribute("contractList", contractList);
+        request.getRequestDispatcher("contract/listContract.jsp").forward(request, response);
     }
 
     private void addNewCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
