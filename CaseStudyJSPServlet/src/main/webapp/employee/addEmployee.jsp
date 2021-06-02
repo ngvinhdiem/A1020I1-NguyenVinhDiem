@@ -72,6 +72,7 @@
                         <th>Email:</th>
                         <td>
                             <input type="text" name="email" size="45"/>
+                            <label><c:out value="${msgEmail}"/></label>
                         </td>
                     </tr>
                     <tr>
@@ -117,7 +118,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
-                            <input type="submit" value="Add"/>
+                            <input type="submit" onclick="return confirm('Are you sure you want to add this employee?')" value="Add"/>
                         </td>
                     </tr>
                 </table>

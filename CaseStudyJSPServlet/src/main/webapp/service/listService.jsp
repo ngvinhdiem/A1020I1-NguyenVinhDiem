@@ -75,7 +75,9 @@
                         <td><c:out value="${service.numberOfFloors}"/></td>
                         <td>
                             <a href="furama?action=edit-service&id=${service.serviceId}">Edit | </a>
-                            <a href="furama?action=delete-service&id=${service.serviceId}">Delete</a>
+<%--                            <a href="furama?action=delete-service&id=${service.serviceId}">Delete</a>--%>
+                        <a href="furama?action=delete-service&id=${service.serviceId}"  onclick="confirmRemoveQuestion('${removeLink}')">
+                            <fmt:message key="link.remove" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>
 
                     </tr>
@@ -120,7 +122,21 @@
 <%--</script>--%>
 
 
-
+<script>
+    function confirmRemoveQuestion(link){
+        if(show_confirm()){
+            window.location = link;
+            this.hide();
+        }
+        else{
+            this.hide();
+        }
+    }
+    function show_confirm()
+    {
+        return confirm("Are you sure you want to do this?");
+    }
+</script>
 <script src="../jquery/jquery-3.5.1.min.js"></script>
 <script src="../datatables/js/jquery.dataTables.min.js"></script>
 <script src="../datatables/js/dataTables.bootstrap4.min.js"></script>

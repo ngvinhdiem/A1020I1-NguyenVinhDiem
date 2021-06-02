@@ -1,5 +1,6 @@
 package controller;
 
+import common.Validate;
 import model.bean.Contract;
 import model.bean.Customer;
 import model.bean.Employee;
@@ -285,6 +286,8 @@ public class FuramaServlet extends HttpServlet {
     }
 
     private void addNewEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        Validate validate = new Validate();
+        boolean check = true;
         int id = (int) (Math.random() * 1000);
         String name = request.getParameter("name");
         String birthday = request.getParameter("birthday");
@@ -292,14 +295,23 @@ public class FuramaServlet extends HttpServlet {
         double salary = Double.parseDouble(request.getParameter("salary"));
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
+        if (!validate.checkEmail(email)) {
+            request.setAttribute("msgEmail", "Enter incorrect email format");
+            check = false;
+        }
         String address = request.getParameter("address");
         int positionId = Integer.parseInt(request.getParameter("positionId"));
         int educationDegreeId = Integer.parseInt(request.getParameter("educationDegreeId"));
         int divisionId = Integer.parseInt(request.getParameter("divisionId"));
-        Employee employee = new Employee(id,name,birthday,idCard,salary,phone,email,address,
-                positionId,educationDegreeId,divisionId);
-        employeeService.insertEmployeeStore(employee);
-        listAllEmployees(request, response);
+        if (!check) {
+            request.getRequestDispatcher("employee/addEmployee.jsp").forward(request,response);
+        }
+        else {
+            Employee employee = new Employee(id,name,birthday,idCard,salary,phone,email,address,
+                    positionId,educationDegreeId,divisionId);
+            employeeService.insertEmployeeStore(employee);
+            listAllEmployees(request, response);
+        }
     }
 
     private void addNewContract(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
