@@ -23,7 +23,7 @@
                         <option value="Chia Se">Chia Se</option>
                         <option value="Tron Goi">Tron Goi</option>
                     </select>
-                    <input type="submit" value="Tim kiem"><br>
+                    <button type="submit" class="btn btn-primary">Tim kiem</button>
                 </label>
             </form>
 
@@ -47,7 +47,7 @@
                         <option value="14">14</option>
                         <option value="15">15</option>
                     </select>
-                    <input type="submit" value="Tim kiem"><br>
+                    <button type="submit" class="btn btn-primary">Tim kiem</button>
                 </label>
             </form>
 
@@ -55,7 +55,7 @@
                 <label>
                     <span>Gia Thue: </span>
                     <input type="text" name="giaThue">
-                    <input type="submit" value="Tim kiem"><br>
+                    <button type="submit" class="btn btn-primary">Tim kiem</button>
                 </label>
             </form>
 
